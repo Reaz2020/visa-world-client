@@ -1,0 +1,58 @@
+[
+    {
+      "id": "vocab001",
+      "word": "fika",
+      "pronunciation": "ˈfiːka",
+      "meaning": "a coffee break, often with pastries",
+      "part_of_speech": "noun",
+      "difficulty": "easy",
+      "lesson_no": 1,
+      "when_to_say": "Use when referring to a break to enjoy coffee, tea, and snacks with friends or colleagues.",
+      "example": "Vi tar en fika på eftermiddagen."
+    },
+    {
+      "id": "vocab002",
+      "word": "lagom",
+      "pronunciation": "ˈlɑːɡɔm",
+      "meaning": "just the right amount, not too much, not too little",
+      "part_of_speech": "adjective",
+      "difficulty": "medium",
+      "lesson_no": 2,
+      "when_to_say": "Use to describe something that is balanced or moderate.",
+      "example": "Det är lagom varmt ute."
+    },
+    {
+      "id": "vocab003",
+      "word": "sambo",
+      "pronunciation": "ˈsɑmˌbuː",
+      "meaning": "a person you live with but are not married to",
+      "part_of_speech": "noun",
+      "difficulty": "medium",
+      "lesson_no": 3,
+      "when_to_say": "Use to refer to a partner with whom you cohabit but are not married to.",
+      "example": "Min sambo och jag har bott tillsammans i tre år."
+    },
+    {
+      "id": "vocab004",
+      "word": "mångfald",
+      "pronunciation": "ˈmɔŋˌfɑld",
+      "meaning": "diversity, variety",
+      "part_of_speech": "noun",
+      "difficulty": "difficult",
+      "lesson_no": 4,
+      "when_to_say": "Use when discussing diversity in a group or society.",
+      "example": "Vi värdesätter mångfald på arbetsplatsen."
+    },
+    {
+      "id": "vocab005",
+      "word": "vabba",
+      "pronunciation": "ˈvabːa",
+      "meaning": "to stay home from work to care for a sick child",
+      "part_of_speech": "verb",
+      "difficulty": "easy",
+      "lesson_no": 5,
+      "when_to_say": "Use when talking about taking leave from work to care for a sick child.",
+      "example": "Jag måste vabba idag eftersom mitt barn är sjukt."
+    }
+  ]
+  
