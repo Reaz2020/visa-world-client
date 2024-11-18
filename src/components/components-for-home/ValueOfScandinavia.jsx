@@ -27,7 +27,7 @@ const ValueOfScandinavia = () => {
             className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-700"
             onClick={() => navigate("/register")} 
           >
-            Get Started
+            Join for free 
           </button>
             </div>
     </div> );

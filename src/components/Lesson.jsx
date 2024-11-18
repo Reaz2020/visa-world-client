@@ -5,25 +5,38 @@ import { AuthContext } from '../providers/Network';
 const Lesson = () => {
     const { lesson_no } = useParams();
     const navigate = useNavigate();
-    const { swedishData, user } = useContext(AuthContext); 
+    const { swedishData, user } = useContext(AuthContext);
     const [lessonData, setLessonData] = useState([]);
     const [selectedWord, setSelectedWord] = useState(null);
 
     useEffect(() => {
         if (!user) {
-            navigate('/login'); // Redirec to login if not authenticated
+            navigate('/login'); // Redirect to login if not authenticated
         } else if (swedishData) {
             const matchedLessons = swedishData.filter(lesson => lesson.Lesson_no === parseInt(lesson_no));
             setLessonData(matchedLessons);
         }
     }, [lesson_no, swedishData, user, navigate]);
 
-    const openModal = (wordData) => {
-        setSelectedWord(wordData);
-        document.getElementById('my_modal_4').showModal(); 
+    // Function to pronounce the word in Swedish
+    const pronounceWord = (word) => {
+        const utterance = new SpeechSynthesisUtterance(word);
+        utterance.lang = 'sv-SE'; // Set language to Swedish (sv-SE)
+        speechSynthesis.speak(utterance);
     };
 
-    //  to style cards based on difficulty
+    // Open modal and pronounce the word
+    const openModal = (wordData) => {
+        setSelectedWord(wordData);
+        document.getElementById('my_modal_4').showModal();
+    };
+
+    // Handle card click to speak the word
+    const handleCardClick = (word) => {
+        pronounceWord(word);
+    };
+
+    // Style cards based on difficulty
     const getCardStyle = (difficulty) => {
         switch (difficulty.toLowerCase()) {
             case 'easy':
@@ -46,6 +59,7 @@ const Lesson = () => {
                     <div
                         key={index}
                         className={`p-4 border rounded-lg shadow-md ${getCardStyle(lesson.difficulty)}`}
+                        onClick={() => handleCardClick(lesson.word)} // Add onClick to speak the word
                     >
                         <h2 className="text-2xl font-semibold">{lesson.word}</h2>
                         <p><strong>Meaning:</strong> {lesson.meaning}</p>
