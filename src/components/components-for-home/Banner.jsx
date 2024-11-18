@@ -8,34 +8,76 @@ const Banner = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 1,  
     slidesToScroll: 1,
     centerMode: true, 
-    centerPadding: '0', 
+    centerPadding: '0',  // Removing padding to avoid white space on the sides
+    responsive: [
+      {
+        breakpoint: 1024, 
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '0',  
+        },
+      },
+      {
+        breakpoint: 768, 
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '0',  // Removig padding on mobile
+        },
+      },
+      {
+        breakpoint: 480, 
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '0',  // Removing padding on small screens
+        },
+      },
+    ],
+    prevArrow: (
+      <div className="slick-prev slick-arrow bg-white text-black p-3 rounded-full shadow-lg opacity-100 hover:bg-gray-600">
+        &lt;
+      </div>
+    ),
+    nextArrow: (
+      <div className="slick-next slick-arrow bg-white text-black p-3 rounded-full shadow-lg opacity-100 hover:bg-gray-600">
+        &gt;
+      </div>
+    ),
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Slider {...settings}>
+        {/* Slide 1 */}
         <div className="flex justify-center">
           <img
             src="https://i.ibb.co/TMSjzBF/swe1.png"
             alt="swe1"
-            className="w-full h-[500px] object-cover" 
+            className="w-full h-[300px] object-cover"  
           />
         </div>
+        {/* Slide 2 */}
         <div className="flex justify-center">
           <img
             src="https://i.ibb.co/TtD2SnZ/swe2.png"
             alt="swe2"
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[300px] object-cover"
           />
         </div>
+        {/* Slide 3 */}
         <div className="flex justify-center">
           <img
             src="https://i.ibb.co/SyNBJnZ/swe3.png"
             alt="swe3"
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[300px] object-cover"
           />
         </div>
       </Slider>

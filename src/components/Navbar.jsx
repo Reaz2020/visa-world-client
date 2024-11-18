@@ -59,7 +59,7 @@ function handleSignOut(){
 
      
     
-      <li>   <NavLink to='/register'> Register</NavLink> </li>
+
       {user && (
                     <>
                         <li>

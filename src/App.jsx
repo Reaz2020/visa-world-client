@@ -3,10 +3,12 @@
 
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth } from './firebase.config';
+import { ToastContainer } from 'react-toastify';
 
 
 
 function App() {
+
 
   const googleProvider =  new GoogleAuthProvider ();
 
@@ -27,7 +29,11 @@ function App() {
     Login .. .... . . . . . . . .
    </button>
 
+   <div className="App">
 
+
+
+</div>
     </>
   )
 }

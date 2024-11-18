@@ -1,48 +1,50 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/Network";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 
 
 const Register = () => {
+
   const { createUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
-
-
   const [passwordError, setPasswordError] = useState("");
 
+
   const handleNavigate = () => {
-    navigate("/");
+    navigate("/home");
   };
+
 
   const handleRegister = (e) => {
     e.preventDefault();
-    
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    // Password validation
+
     const passwordValidation = validatePassword(password);
     if (passwordValidation !== true) {
       setPasswordError(passwordValidation);
+      toast.error(passwordValidation);
       return;
     } else {
-      setPasswordError(""); // Clear previous error
+      setPasswordError("");
     }
 
-    // Create user with email and password
+    // Create user
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        toast.success("Registration Successful!", { position: toast.POSITION.TOP_CENTER });
-        navigate("/"); // Navigate to home after successful registration
+       // toast.success("Registration Successful!", { position: toast.POSITION.TOP_CENTER });
+        handleNavigate();
       })
       .catch((error) => {
-        console.error("ERROR:", error.message);
-        toast.error(error.message, { position: toast.POSITION.TOP_CENTER });
+  
+       toast.error(error.message);
       });
   };
+
 
   const validatePassword = (password) => {
     const upperCasePattern = /[A-Z]/;
@@ -58,15 +60,16 @@ const Register = () => {
     if (password.length < minLength) {
       return `Password must be at least ${minLength} characters long.`;
     }
-    return true; // Password is valid
+    return true;
   };
 
+  // Handle Google sign-in
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
         toast.success("Google Authentication Successful!", { position: toast.POSITION.TOP_CENTER });
-        navigate("/"); 
+        navigate("/");
       })
       .catch((error) => {
         console.error("ERROR:", error.message);
@@ -75,12 +78,13 @@ const Register = () => {
   };
 
   return (
+    
     <div className="container mx-auto py-8">
+
       <h1 className="text-center text-3xl font-bold mb-6">Register</h1>
       
       {/* Register Form */}
       <form onSubmit={handleRegister} className="w-1/2 mx-auto flex flex-col gap-4">
-        
         <label className="text-sm font-medium">
           Name
           <input name="name" type="text" className="border-2 p-2 mt-1 w-full" placeholder="Enter your name" required />
@@ -104,11 +108,18 @@ const Register = () => {
         </label>
         
         <label className="text-sm font-medium">
-          About You
-          <textarea name="about" className="border-2 p-2 mt-1 w-full" placeholder="Tell us about yourself" />
+          Photo URL
+          <input
+            name="photoURL"
+            type="text"
+            className="border-2 p-2 mt-1 w-full"
+            placeholder="Enter your photo URL"
+          />
         </label>
-        
-        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-3 mt-4 rounded-full">Register</button>
+
+        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-3 mt-4 rounded-full">
+          Register
+        </button>
       </form>
 
       {/* Link to Login */}
@@ -129,9 +140,14 @@ const Register = () => {
         </button>
       </div>
 
-      {/*  to Home Page Button */}
+      {/* Go to Home Page Button */}
       <div className="text-center mt-8">
-        <button className="border-2 bg-lime-400 hover:bg-lime-600 w-32 rounded-full p-4" onClick={handleNavigate}>Go to Home</button>
+        <button
+          className="bg-blue-500 hover:bg-blue-600 text-white py-3 mt-4 rounded-full"
+          onClick={handleNavigate}
+        >
+          Go to Home
+        </button>
       </div>
     </div>
   );
