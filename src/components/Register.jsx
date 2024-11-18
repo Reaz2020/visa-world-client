@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const Register = () => {
 
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, handleGoogleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
 
@@ -64,16 +64,16 @@ const Register = () => {
   };
 
   // Handle Google sign-in
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
+  const handleGoogleSignInLocally = () => {
+    handleGoogleSignIn()
       .then((result) => {
-        console.log(result.user);
-        toast.success("Google Authentication Successful!", { position: toast.POSITION.TOP_CENTER });
+       
+       // toast.success("Google Authentication Successful!", { position: toast.POSITION.TOP_CENTER });
         navigate("/");
       })
       .catch((error) => {
-        console.error("ERROR:", error.message);
-        toast.error(error.message, { position: toast.POSITION.TOP_CENTER });
+       // console.error("ERROR:", error.message);
+        toast.error(error.message);
       });
   };
 
@@ -133,7 +133,7 @@ const Register = () => {
       {/* Social Login Button */}
       <div className="mt-6 text-center">
         <button
-          onClick={handleGoogleSignIn}
+          onClick={handleGoogleSignInLocally}
           className="bg-red-500 hover:bg-red-600 text-white py-3 px-8 rounded-full"
         >
           Register with Google
