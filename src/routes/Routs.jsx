@@ -10,6 +10,8 @@ import Tutorial from '../components/Tutorials';
 import Home from '../components/Home';
 import Lesson from '../components/Lesson';
 import NotFound from '../components/NotFound'; 
+import ForgetPassword from '../components/ForgetPassword';
+import UpdateProfile from './UpdateProfile';
 
 const Routes = createBrowserRouter([
   {
@@ -52,6 +54,15 @@ const Routes = createBrowserRouter([
         path: 'lessons/:lesson_no',
         element: <PrivateRoute><Lesson /></PrivateRoute>,
       },
+      {
+        path: '/forgot-password',
+        element: <ForgetPassword/>,
+      },
+
+      {
+        path: '/update-profile',  
+        element: <UpdateProfile /> ,
+      },
     
       {
         path: '*',
@@ -62,3 +73,6 @@ const Routes = createBrowserRouter([
 ]);
 
 export default Routes;
+
+
+///forgot-password

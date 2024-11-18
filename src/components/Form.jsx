@@ -3,37 +3,33 @@ import { AuthContext } from "../providers/Network";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify"; // For toast notifications
 
-
 const Form = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const { SignInUser, handleGoogleSignIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const [email, setEmail] = useState(""); // Track email state
 
-  // Navigate to the desired route or home
+  // Determine redirection route after successful login
   const handleNavigate = () => {
-    navigate(location?.state ? location.state : "/");
+    navigate(location?.state || "/");
   };
 
   // Handle login form submission
-  const handelSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-    let email = e.target.email.value;
-    let password = e.target.password.value;
-
-    SignInUser(email, password)
-      .then((userCredential) => {
-        // Successfully logged in
-        const user = userCredential.user;
-        handleNavigate();
-        toast.success("Login successful!"); // Display success toast
-      })
-      .catch((error) => {
-        const errorMsg = error.message;
-        setErrorMessage(errorMsg);
-        toast.error(`Login failed: ${errorMsg}`); // Display error toast
-      });
+    try {
+      const userCredential = await SignInUser(email, password);
+      handleNavigate();
+      toast.success("Login successful!");
+    } catch (error) {
+      const errorMsg = error.message;
+      setErrorMessage(errorMsg);
+      toast.error(`Login failed: ${errorMsg}`);
+    }
   };
 
   // Navigate to the register page
@@ -42,17 +38,20 @@ const Form = () => {
   };
 
   // Google sign-in
-  const handleGoogleSignInLocally = () => {
-    handleGoogleSignIn()
-      .then((result) => {
-        const user = result.user;
-        handleNavigate();
-        toast.success("Google login successful!");
-      })
-      .catch((error) => {
-        const errorMsg = error.message;
-        toast.error(`Google login failed: ${errorMsg}`);
-      });
+  const handleGoogleSignInLocally = async () => {
+    try {
+      const result = await handleGoogleSignIn();
+      handleNavigate();
+      toast.success("Google login successful!");
+    } catch (error) {
+      const errorMsg = error.message;
+      toast.error(`Google login failed: ${errorMsg}`);
+    }
+  };
+
+  // Navigate to forgot password page with email if available
+  const handleNavigateToForgotPassword = () => {
+    navigate("/forgot-password", { state: { email } });
   };
 
   return (
@@ -76,7 +75,7 @@ const Form = () => {
       {/* Login Form */}
       <form
         className="w-1/2 container mx-auto flex flex-col my-2 gap-2"
-        onSubmit={handelSubmit}
+        onSubmit={handleSubmit}
       >
         <h2 className="text-center text-2xl font-bold mb-4">User Login</h2>
 
@@ -84,6 +83,7 @@ const Form = () => {
         <label>
           Email
           <input
+            onChange={(e) => setEmail(e.target.value)} 
             name="email"
             type="email"
             placeholder="Enter your email"
@@ -105,7 +105,9 @@ const Form = () => {
         </label>
 
         {/* Error Message */}
-        <p className="text-red-600 text-lg">{errorMessage}</p>
+        {errorMessage && (
+          <p className="text-red-600 text-lg">{errorMessage}</p>
+        )}
 
         {/* Login Button */}
         <button className="btn btn-primary w-full p-2 mt-4" type="submit">
@@ -125,9 +127,12 @@ const Form = () => {
 
       {/* Forgot Password Link */}
       <div className="text-center mt-4">
-        <a href="/forgot-password" className="text-blue-500">
+        <button
+          onClick={handleNavigateToForgotPassword}
+          className="text-blue-500 underline"
+        >
           Forgot Password?
-        </a>
+        </button>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-awesome/components": "^1.0.22",
+    "aos": "^2.3.4",
     "firebase": "^11.0.1",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",

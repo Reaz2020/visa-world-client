@@ -12,6 +12,7 @@ export const AuthContext = createContext(null);
  import { useEffect } from 'react';
  import { GoogleAuthProvider } from "firebase/auth";
  import { GithubAuthProvider } from "firebase/auth";
+ import { updateProfile } from "firebase/auth"; // Firebase import for profile updates
 
 
 
@@ -107,21 +108,42 @@ function handleGoogleSignIn(){
 //       const credential = GithubAuthProvider.credentialFromError(error);
 //       // ...
 //     });}
+
+
+//update 
+  // Handle updating user profile (name and photo URL)
+  function handleUpdateUser(updatedName, updatedPhotoURL) {
+    if (user) {
+      return updateProfile(user, { displayName: updatedName, photoURL: updatedPhotoURL })
+        
+    } else {
+      console.warn("No authenticated user to update");
+    }
+  }
+
+
+
+
 //sign out 
 
 function signOutUser(){
     return  signOut(auth);
   }
+
+
+
+
+
 //adding to props list
   const authInfo={
 
     createUser,user,loading,SignInUser ,
     signOutUser,setUser,handleGoogleSignIn,
-    swedishData
+    swedishData,handleUpdateUser
 
 
  }
-console.log(swedishData?.length)
+
     return ( 
     
     <AuthContext.Provider value={authInfo }>
