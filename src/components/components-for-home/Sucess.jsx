@@ -9,7 +9,7 @@ const Success = () => {
   const tutorialCount = 200;
 
   return (
-    <div className="text-center py-10">
+    <div className="text-center py-10 border-2  ">
       <h2 className="text-3xl font-semibold mb-8">Success Overview</h2>
       <div className="flex flex-wrap justify-center gap-6">
         {/* User Count Card */}

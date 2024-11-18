@@ -10,7 +10,7 @@ const Banner = () => {
     speed: 500,
     slidesToShow: 1,  
     slidesToScroll: 1,
-    centerMode: true, 
+    centerMode: true, // Keeps image centered in the slider
     centerPadding: '0',  // Removing padding to avoid white space on the sides
     responsive: [
       {
@@ -27,8 +27,8 @@ const Banner = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: '0',  // Removig padding on mobile
+          centerMode: false, // Disabling centerMode for smaller screens
+          centerPadding: '0',  // Removing padding on mobile
         },
       },
       {
@@ -36,8 +36,8 @@ const Banner = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: '0',  // Removing padding on small screens
+          centerMode: false,  // Disabling centerMode for very small screens
+          centerPadding: '0', // No padding on very small screens
         },
       },
     ],
@@ -54,14 +54,14 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative lg:w-full">
       <Slider {...settings}>
         {/* Slide 1 */}
         <div className="flex justify-center">
           <img
             src="https://i.ibb.co/TMSjzBF/swe1.png"
             alt="swe1"
-            className="w-full h-[300px] object-cover"  
+            className="w-full h-[300px] object-cover object-center"  // Ensure it covers and stays centered
           />
         </div>
         {/* Slide 2 */}
@@ -69,7 +69,7 @@ const Banner = () => {
           <img
             src="https://i.ibb.co/TtD2SnZ/swe2.png"
             alt="swe2"
-            className="w-full h-[300px] object-cover"
+            className="w-full h-[300px] object-cover object-center"  // Ensure it covers and stays centered
           />
         </div>
         {/* Slide 3 */}
@@ -77,7 +77,7 @@ const Banner = () => {
           <img
             src="https://i.ibb.co/SyNBJnZ/swe3.png"
             alt="swe3"
-            className="w-full h-[300px] object-cover"
+            className="w-full h-[300px] object-cover object-center"  // Ensure it covers and stays centered
           />
         </div>
       </Slider>

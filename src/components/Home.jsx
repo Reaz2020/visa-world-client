@@ -19,29 +19,29 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className="border-2 border-e-red-5">
       {/* Banner Section */}
       <div data-aos="fade-down" className="mb-6">
         <Banner />
       </div>
 
       {/* About Section */}
-      <section data-aos="fade-right" className="min-h-96 bg-sky-300">
+      <section data-aos="fade-right" className=" bg-sky-300">
         <AboutInHome />
       </section>
 
       {/* Success Section */}
-      <section data-aos="fade-left" className="min-h-96 bg-sky-300 m-6">
+      <section data-aos="fade-left" className=" bg-sky-300 mb-6">
         <Success />
       </section>
 
       {/* Value of Scandinavia Section */}
-      <section data-aos="zoom-in" className="m-6">
+      <section data-aos="zoom-in" className="mb-6">
         <ValueOfScandinavia />
       </section>
 
       {/* Course Statistics Section */}
-      <section data-aos="fade-up" className="m-6">
+      <section data-aos="fade-up" className="mb-6">
         <CourseStatistics />
       </section>
     </div>

@@ -17,7 +17,7 @@ function handleSignOut(){
 
 
 
-    return ( <div>
+    return ( <div className="border-2">
         <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
@@ -49,7 +49,7 @@ function handleSignOut(){
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Logo</a>
+    <a className="btn btn-ghost text-xl"><img className="w-10 h-10 border-8 border-green-400 rounded-full" src="/logo.png" alt="" /></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -85,7 +85,7 @@ function handleSignOut(){
     <img className="h-10 w-10 border-2 rounded-full bg-slate-400" src={user.photoURL}  alt="" /> 
     <button onClick={ handleSignOut}>log out</button></div></li> : 
 
-  <li>   <NavLink to='/login'> Login</NavLink> </li>
+  <li className="btn bg-green-400">   <NavLink to='/login'> Login</NavLink> </li>
       
     }
   </div>

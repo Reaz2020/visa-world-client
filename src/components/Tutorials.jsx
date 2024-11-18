@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const Tutorials = () => {
   // List of YouTube video links for language tutorials
   const videos = [
-    "https://www.youtube.com/embed/kqeEfqe6gMw?autoplay=1", // Video 1
-    "https://www.youtube.com/embed/uM-OgxS8bZg?autoplay=1", // Video 2
-    "https://www.youtube.com/embed/aGoC_gVjdr4?autoplay=1", // Video 3
-    "https://www.youtube.com/embed/IPU9kJ4sGGU?autoplay=1", // Video 4
-    "https://www.youtube.com/embed/NnZ4uBYeqiM?autoplay=1", // Video 5
-    "https://www.youtube.com/embed/6JDvVpK8Knk?autoplay=1", // Video 6
+    "https://www.youtube.com/embed/kqeEfqe6gMw?autoplay=1", 
+    "https://www.youtube.com/embed/uM-OgxS8bZg?autoplay=1",
+    "https://www.youtube.com/embed/aGoC_gVjdr4?autoplay=1", 
+    "https://www.youtube.com/embed/IPU9kJ4sGGU?autoplay=1", 
+    "https://www.youtube.com/embed/NnZ4uBYeqiM?autoplay=1", 
+    "https://www.youtube.com/embed/6JDvVpK8Knk?autoplay=1", 
     "https://www.youtube.com/embed/6JDvVpK8Knk?autoplay=1&si=3fa65jrqKjILsyzX",
   ];
 

@@ -1,7 +1,7 @@
 const AboutInHome = () => {
     return (
-        <section className="bg-gradient-to-b from-blue-50 via-white to-blue-100 py-16">
-          <div className="container mx-auto px-8 lg:px-16 text-center">
+        <section className="bg-gradient-to-b from-blue-50 via-white to-blue-100 py-16 border-2 border-red-500">
+          <div className=" px-8 lg:px-16 text-center">
             
             {/* Title Section */}
             <h2 className="text-4xl font-extrabold text-blue-800 mb-4">

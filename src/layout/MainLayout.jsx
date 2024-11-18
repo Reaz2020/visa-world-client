@@ -14,7 +14,7 @@ const MainLayout = () => {
 
 
 
-    return ( <div>
+    return ( <div className="w-full px-4">
             <ToastContainer
   position="top-right"
   autoClose={3000} // Closes after 3 seconds
@@ -27,18 +27,18 @@ const MainLayout = () => {
   pauseOnHover
   theme="light"
 />
-          <div className="text-center text-green-600 text-xl ">
+          <div className="text-center text-green-600 text-4xl my-6">
         {user ? (
           <div >Hello! {user?.displayName || "User"}</div>
         ) : (
           <div>Hello! Welcome, Guest</div>
         )}
       </div>
-    <div className="container mx-auto">    <Navbar></Navbar></div>
-  <div className="min-h-[45rem] container mx-auto">
+    <div className="">    <Navbar></Navbar></div>
+  <div className=" ">
   <Outlet></Outlet>
   </div>
-      <div className="container mx-auto">  <Footer></Footer></div>
+      <div className="">  <Footer></Footer></div>
 
 
 

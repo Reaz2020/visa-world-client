@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 
 const ValueOfScandinavia = () => {
   const navigate = useNavigate();
-    return ( <div>
+    return ( <div className="">
             {/* Cultural Insights Section */}
-            <div className="bg-blue-100 rounded-lg shadow-md p-8 mb-10">
+            <div className="bg-blue-100 rounded-lg shadow-md p-8 mb-10 ">
               <h3 className="text-2xl font-bold text-blue-700 mb-4">🌍 Explore Scandinavian Culture</h3>
               <p className="text-gray-700 text-lg mb-4">
                 Our platform is more than a language site. Dive into the traditions, food, and social etiquette that make Scandinavia so unique:

@@ -30,7 +30,7 @@ const CourseStatistics = () => {
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center" }} className="p-2">
       <h2>Course Statistics</h2>
       <ResponsiveContainer width="100%" height={400}>
         <ComposedChart data={data}>
