@@ -1,6 +1,8 @@
 import Banner from "./components-for-home/Banner";
 import AboutInHome from "./components-for-home/AboutinHome";
 import Success from "./components-for-home/Sucess";
+import ValueOfScandinavia from "./components-for-home/ValueOfScandinavia";
+import CourseStatistics from "./components-for-home/CourseStatistics";
 
 
 
@@ -9,14 +11,18 @@ import Success from "./components-for-home/Sucess";
 const Home = () => {
     return ( <div>
      <div className="">   <Banner></Banner></div>
-        Home component ... . . . . .
-        <section className="min-h-96 bg-sky-300">ABOUT SECTION 
+   
+        <section className="min-h-96 bg-sky-300">
           <AboutInHome></AboutInHome>
        </section>
-        <section className="min-h-96 bg-sky-300">SUCCESS SECTION 
+        <section className="min-h-96 bg-sky-300">
             <Success></Success>
         </section>
-        <section className="min-h-96 bg-sky-300">MY OWN MADE SECTION</section>
+        <section>
+        <ValueOfScandinavia></ValueOfScandinavia>
+        </section>
+        <section><CourseStatistics></CourseStatistics></section>
+        
     </div> );
 }
  
