@@ -1,0 +1,55 @@
+
+[
+      {
+        "lesson_no": 1,
+        "title": "Lesson 1",
+        "description": "Introduction to the basics of the language."
+      },
+      {
+        "lesson_no": 2,
+        "title": "Lesson 2",
+        "description": "Learn greetings and basic conversation."
+      },
+      {
+        "lesson_no": 3,
+        "title": "Lesson 3",
+        "description": "Mastering numbers and counting."
+      },
+      {
+        "lesson_no": 4,
+        "title": "Lesson 4",
+        "description": "Understanding sentence structure."
+      },
+      {
+        "lesson_no": 5,
+        "title": "Lesson 5",
+        "description": "Exploring verbs and tenses."
+      },
+      {
+        "lesson_no": 6,
+        "title": "Lesson 6",
+        "description": "Common phrases and expressions."
+      },
+      {
+        "lesson_no": 7,
+        "title": "Lesson 7",
+        "description": "Reading and writing the alphabet."
+      },
+      {
+        "lesson_no": 8,
+        "title": "Lesson 8",
+        "description": "Conversations at the market."
+      },
+      {
+        "lesson_no": 9,
+        "title": "Lesson 9",
+        "description": "Talking about hobbies and interests."
+      },
+      {
+        "lesson_no": 10,
+        "title": "Lesson 10",
+        "description": "Review and practice of all previous lessons."
+      }
+]
+  
+  

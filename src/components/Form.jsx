@@ -4,16 +4,21 @@
 
 import { useContext } from "react";
 import { AuthContext } from "../providers/Network";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const Form = () => {
+  const location = useLocation()
   const [errorMessage, setErrorMessage]=useState('');
  
   const {SignInUser,handleGoogleSignIn} = useContext(AuthContext);
  
     const navigate = useNavigate();
-    const handleNavigate=()=>{navigate('/') 
+    const handleNavigate=()=>{
+      
+     
+      
+      navigate(location?.state?location.state:'/') 
 
     }
 // submitting login and redirecting to home page is successfull 
