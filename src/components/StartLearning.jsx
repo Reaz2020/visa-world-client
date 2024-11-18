@@ -15,7 +15,7 @@ const StartLearning = () => {
         {lessons.map((lessonNo) => (
           <Link
             key={lessonNo}
-            to={`/lesson/${lessonNo}`}
+            to={`/lessons/${lessonNo}`}
             className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
           >
             <div className="text-xl font-semibold text-gray-800">Lesson {lessonNo}</div>

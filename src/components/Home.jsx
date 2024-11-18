@@ -8,7 +8,7 @@ import Success from "./components-for-home/Sucess";
 
 const Home = () => {
     return ( <div>
-     <div className="max-h-96">   <Banner></Banner></div>
+     <div className="">   <Banner></Banner></div>
         Home component ... . . . . .
         <section className="min-h-96 bg-sky-300">ABOUT SECTION 
           <AboutInHome></AboutInHome>

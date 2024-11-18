@@ -1,11 +1,17 @@
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Form,Outlet } from 'react-router-dom';
+import { Form,Outlet,useLoaderData  } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../providers/Network";
 const MainLayout = () => {
+
+
     const { user} = useContext(AuthContext);
+
+
+
+
     return ( <div>
           <div className="text-center text-green-600 text-xl ">
         {user ? (

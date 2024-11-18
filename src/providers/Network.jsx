@@ -2,7 +2,7 @@
 
 import { auth } from '../firebase.config';
 import { createContext} from 'react';
-
+import { Form,Outlet,useLoaderData  } from 'react-router-dom';
 export const AuthContext = createContext(null);
 
  import {  onAuthStateChanged,signOut,signInWithEmailAndPassword,createUserWithEmailAndPassword,
@@ -18,15 +18,37 @@ export const AuthContext = createContext(null);
 
 
 const Network = ({children}) => {
+  // const data = useLoaderData(); 
+  // console.log(data.length);
 
 
 const [user, setUser]=useState(null);
 const [loading, setLoading]=useState(true);
+const [swedishData, setSwedishData] = useState(null); // State to store Swedish data
+
 
 const provider = new GoogleAuthProvider();
 const gitProvider = new GithubAuthProvider();
 
+// fetchi data
+  // Fetch data from swedish.json in useEffect
+  // Fetch data from swedish.json in useEffect
+  useEffect(() => {
+    const fetchSwedishData = async () => {
+      try {
+        const response = await fetch('/swedish.json'); // Replace with actual path
+        if (!response.ok) {
+          throw new Error("Failed to load data from swedish.json");
+        }
+        const data = await response.json();
+        setSwedishData(data); // Store data in state
+      } catch (error) {
+        console.error("Error fetching swedish.json:", error);
+      }
+    };
 
+    fetchSwedishData();
+  }, []);
 
 
 function createUser (email,password){
@@ -45,7 +67,7 @@ useEffect(() => {
     // Subscribe to the onAuthStateChanged listener
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
 
-        console.log('current user : - ',currentUser)
+        //console.log('current user : - ',currentUser)
         setUser(currentUser); // Set the user when logged in
         setLoading(false)
      
@@ -64,27 +86,27 @@ function handleGoogleSignIn(){
 
 //sign in with github 
 
-function handleGitSignIn(){
-    signInWithPopup(auth, gitProvider)
-    .then((result) => {
-      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-      const credential = GithubAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+// function handleGitSignIn(){
+//     signInWithPopup(auth, gitProvider)
+//     .then((result) => {
+//       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+//       const credential = GithubAuthProvider.credentialFromResult(result);
+//       const token = credential.accessToken;
   
-      // The signed-in user info.
-      const user = result.user;
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
-    }).catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GithubAuthProvider.credentialFromError(error);
-      // ...
-    });}
+//       // The signed-in user info.
+//       const user = result.user;
+//       // IdP data available using getAdditionalUserInfo(result)
+//       // ...
+//     }).catch((error) => {
+//       // Handle Errors here.
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       // The email of the user's account used.
+//       const email = error.customData.email;
+//       // The AuthCredential type that was used.
+//       const credential = GithubAuthProvider.credentialFromError(error);
+//       // ...
+//     });}
 //sign out 
 
 function signOutUser(){
@@ -94,11 +116,12 @@ function signOutUser(){
   const authInfo={
 
     createUser,user,loading,SignInUser ,
-    signOutUser,setUser,handleGoogleSignIn,handleGitSignIn
+    signOutUser,setUser,handleGoogleSignIn,
+    swedishData
 
 
  }
-
+console.log(swedishData?.length)
     return ( 
     
     <AuthContext.Provider value={authInfo }>
