@@ -2,13 +2,13 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/Network";
 import { toast } from "react-toastify";
-//import { updateProfile } from "firebase/auth"; // Firebase import for profile updates
+import { updateProfile } from "firebase/auth"; // Firebase import for profile updates
 
 
 const Register = () => {
 
 
-  const { createUser, handleGoogleSignIn,handleUpdateUser,setUser,updateUse,user} = useContext(AuthContext);
+  const { createUser, handleGoogleSignIn,handleUpdateUser,setUser,updateUser,user} = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
 
@@ -85,7 +85,7 @@ const Register = () => {
         //setUser(user)
         updateUser (user);
       }
-      updateUser (user);
+      //updateUser (user);
       handleNavigate(); // Navigate to home after successful registration
     } catch (error) {
       toast.error(error.message);
