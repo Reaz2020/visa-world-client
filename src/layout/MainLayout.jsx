@@ -36,7 +36,7 @@ const MainLayout = () => {
         {user ? (
           <div >Hello! {user?.displayName || "User"}</div>
         ) : (
-          <div>Hello! Welcome, Guest</div>
+          <div>Scandinavian Learn</div>
         )}
       </div>
     <div className="">    <Navbar></Navbar></div>

@@ -9,9 +9,9 @@ const Navbar = () => {
 
 function handleSignOut(){
   signOutUser().then(() => {
-    // Sign-out successful.
+   
   }).catch((error) => {
-    // An error happened.
+    
   });
 
 }
@@ -20,7 +20,7 @@ function handleSignOut(){
 
     return ( 
     
-    <div className="border-2 bg-sky-300">
+    <div className="border-2 bg-sky-300 rounded-lg">
         <div className="navbar ">
   <div className="navbar-start">
     <div className="dropdown">
@@ -65,6 +65,7 @@ function handleSignOut(){
     <li>   <NavLink to='/'> Home</NavLink> </li>
     <li>   <NavLink to='/start-learning'> Start-Learning</NavLink> </li>
     <li>   <NavLink to='/tutorial'> Tutorial</NavLink> </li>
+    <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
 
      
     

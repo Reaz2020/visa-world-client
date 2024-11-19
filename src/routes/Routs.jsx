@@ -12,6 +12,7 @@ import Lesson from '../components/Lesson';
 import NotFound from '../components/NotFound'; 
 import ForgetPassword from '../components/ForgetPassword';
 import UpdateProfile from './UpdateProfile';
+import AboutUs from '../components/components-for-home/AboutUs';
 
 const Routes = createBrowserRouter([
   {
@@ -62,6 +63,11 @@ const Routes = createBrowserRouter([
       {
         path: '/update-profile',  
         element: <UpdateProfile /> ,
+      },
+
+      {
+        path: '/about-us',  
+        element: <AboutUs /> ,
       },
     
       {
