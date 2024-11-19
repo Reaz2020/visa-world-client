@@ -1,11 +1,22 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { SocialIcon } from 'react-social-icons'
+
+
+
 const Footer = () => {
+
+
     return ( <footer className="footer bg-base-200 text-base-content p-10 border-2 border-e-red-5">
         <nav>
-          <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+       
+        <div className='p-2 text-2xl text-orange-500'>Follow us on</div>
+          <div className='flex gap-2'>   
+          <a className="link link-hover">{<SocialIcon url="https://linkedin.com/in/couetilc" />}</a>
+          <a className="link link-hover">{<SocialIcon network="twitter" bgColor="#ff5a01" />}</a>
+          <a className="link link-hover">{<SocialIcon network="facebook" bgColor="#ff5a01" />}</a>
+          </div>
+        
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
@@ -21,7 +32,7 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </nav>
         <form>
-          <h6 className="footer-title">Newsletter</h6>
+        &copy; All rights reserved. 2022
           <fieldset className="form-control w-80">
             <label className="label">
               <span className="label-text">Enter your email address</span>

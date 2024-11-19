@@ -18,6 +18,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
     "react-slick": "^0.30.2",
+    "react-social-icons": "^6.18.0",
     "react-svg-loader": "^3.0.3",
     "react-toastify": "^10.0.6",
     "recharts": "^2.13.3",

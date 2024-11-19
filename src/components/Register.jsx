@@ -35,7 +35,7 @@ const Register = () => {
     // Create user
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+     
        // toast.success("Registration Successful!", { position: toast.POSITION.TOP_CENTER });
         handleNavigate();
       })

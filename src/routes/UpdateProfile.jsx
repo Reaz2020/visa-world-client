@@ -12,7 +12,7 @@ const UpdateProfile = () => {
   const handleUpdateProfileLocally = async () => {
     handleUpdateUser(name, photoURL).then(() => {
        // setUser({ ...user, displayName: name, photoURL: photoURL }); // Update local user state
-        console.log("User profile updated successfully");
+      
         navigate('/profile')
       })
       .catch((error) => {

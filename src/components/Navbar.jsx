@@ -38,15 +38,21 @@ function handleSignOut(){
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Home</a></li>
-        <li>
-          <a>About us</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+         <li>   <NavLink to='/'> Home</NavLink> </li>
+         {user && (
+                    <>
+                        <li>
+                            <NavLink to="/profile">Profile</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/history">History</NavLink>
+                        </li>
+                    </>
+                )}
+        
+        <li>   <NavLink to='/start-learning'> Start-Learning</NavLink> </li>
+        
+        <li>   <NavLink to='/tutorial'> Tutorial</NavLink> </li>
       </ul>
     </div>
     <a className="btn btn-ghost text-xl"><img className="w-10 h-10 border-8 border-green-400 rounded-full" src="/logo.png" alt="" /></a>

@@ -20,7 +20,7 @@ export const AuthContext = createContext(null);
 
 const Network = ({children}) => {
   // const data = useLoaderData(); 
-  // console.log(data.length);
+ 
 
 
 const [user, setUser]=useState(null);
@@ -68,7 +68,7 @@ useEffect(() => {
     // Subscribe to the onAuthStateChanged listener
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
 
-        //console.log('current user : - ',currentUser)
+    
         setUser(currentUser); // Set the user when logged in
         setLoading(false)
      
