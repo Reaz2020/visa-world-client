@@ -42,12 +42,12 @@ const MainLayout = () => {
         
         (
           <ReactTyped
-          strings={["Välkommen!", "Scandinavian Learn"]}
-          typeSpeed={100} // Speed of typing
-          backSpeed={50} // Speed of backspacing
-          backDelay={1000} // Delay before backspacing
-          startDelay={500} // Delay before typing starts
-          loop={false} // Set to true for infinite loop
+          strings={["Välkommen!", "Scandinavian Learn", "A free Swedish Learning platform"]}
+          typeSpeed={100} 
+          backSpeed={50} 
+          backDelay={1000} 
+          startDelay={500} 
+          loop={false} 
         />
         )}
 

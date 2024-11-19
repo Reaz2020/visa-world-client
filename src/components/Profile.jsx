@@ -53,7 +53,7 @@ const Profile = () => {
 
       {/* User Information Card */}
       <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <div className="flex items-center mb-6">
+        <div className="flex flex-col md:flex-row items-center mb-6">
           {/* User Photo */}
           <img
             src={userData?.photo || 'https://via.placeholder.com/150'}

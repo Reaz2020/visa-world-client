@@ -2,11 +2,13 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/Network";
 import { toast } from "react-toastify";
+//import { updateProfile } from "firebase/auth"; // Firebase import for profile updates
 
 
 const Register = () => {
 
-  const { createUser, handleGoogleSignIn } = useContext(AuthContext);
+
+  const { createUser, handleGoogleSignIn,handleUpdateUser,setUser,updateUse,user} = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
 
@@ -16,13 +18,51 @@ const Register = () => {
   };
 
 
-  const handleRegister = (e) => {
+  // const handleRegister = (e) => {
+  //   console.log('handle register')
+  //   e.preventDefault();
+  //   const name = e.target.name.value;
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value;
+  //   const photoUrl= e.target.photoUrl.value;
+
+
+  //   const passwordValidation = validatePassword(password);
+  //   if (passwordValidation !== true) {
+  //     setPasswordError(passwordValidation);
+  //     toast.error(passwordValidation);
+  //     return;
+  //   } else {
+  //     setPasswordError("");
+  //   }
+
+  //   // Create user
+  //   createUser(email, password)
+  //     .then((result) => {
+  //       const user = result.user;
+  //         if (name || photoUrl) {
+  //           updateProfile(user, { displayName: name, photoURL: photoUrl})
+  //          // handleUpdateUser(name,photoUrl)
+  //         }
+     
+  //         setUser(user)
+     
+  //      // toast.success("Registration Successful!", { position: toast.POSITION.TOP_CENTER });
+  //       handleNavigate();
+  //     })
+  //     .catch((error) => {
+  
+  //      toast.error(error.message);
+  //     });
+  // };
+  const handleRegister = async (e) => {
+    console.log('handle register');
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-
-
+    const photoUrl = e.target.photoUrl.value;
+  
     const passwordValidation = validatePassword(password);
     if (passwordValidation !== true) {
       setPasswordError(passwordValidation);
@@ -31,20 +71,27 @@ const Register = () => {
     } else {
       setPasswordError("");
     }
-
-    // Create user
-    createUser(email, password)
-      .then((result) => {
-     
-       // toast.success("Registration Successful!", { position: toast.POSITION.TOP_CENTER });
-        handleNavigate();
-      })
-      .catch((error) => {
   
-       toast.error(error.message);
-      });
+    try {
+      // Create user
+      const result = await createUser(email, password);
+      const user = result.user;
+  
+      if (name || photoUrl) {
+        // Update profile
+        await updateProfile(user, { displayName: name, photoURL: photoUrl });
+       // await updateUserProfile(name, photoUrl); // Update profile
+        //toast.success("Registration Successful!", { position: toast.POSITION.TOP_CENTER });
+        //setUser(user)
+        updateUser (user);
+      }
+      updateUser (user);
+      handleNavigate(); // Navigate to home after successful registration
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
-
+  
 
   const validatePassword = (password) => {
     const upperCasePattern = /[A-Z]/;
@@ -99,7 +146,7 @@ const Register = () => {
           Password
           <input
             name="password"
-            type="password"
+            type="text"
             className="border-2 p-2 mt-1 w-full"
             placeholder="Enter your password"
             required
@@ -110,7 +157,7 @@ const Register = () => {
         <label className="text-sm font-medium">
           Photo URL
           <input
-            name="photoURL"
+            name="photoUrl"
             type="text"
             className="border-2 p-2 mt-1 w-full"
             placeholder="Enter your photo URL"
@@ -121,6 +168,10 @@ const Register = () => {
           Register
         </button>
               {/* Social Login Button */}
+     
+      </form>
+
+      <div>
       <div className="mt-6 text-center">
         <button
           onClick={handleGoogleSignInLocally}
@@ -129,7 +180,7 @@ const Register = () => {
           Register with Google
         </button>
       </div>
-      </form>
+      </div>
 
       {/* Link to Login */}
       <div className="mt-4 text-center">

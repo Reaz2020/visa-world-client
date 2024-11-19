@@ -1,4 +1,6 @@
 [
+  
+ 
   {
     "Id": "01",
     "word": "Altruism",
@@ -8,7 +10,8 @@
     "difficulty": "Medium",
     "Lesson_no": 1,
     "when_to_say": "When discussing selflessness or helping others.",
-    "example": "Her altruism led her to help others without expecting anything in return."
+    "example": "Her altruism led her to help others without expecting anything in return.",
+    "learners": 1325
   },
   {
     "Id": "02",
@@ -19,7 +22,8 @@
     "difficulty": "Easy",
     "Lesson_no": 2,
     "when_to_say": "When describing someone who is helpful or generous.",
-    "example": "She was välvillig and always helped those in need."
+    "example": "She was välvillig and always helped those in need.",
+    "learners": 1540
   },
   {
     "Id": "03",
@@ -30,7 +34,8 @@
     "difficulty": "Easy",
     "Lesson_no": 3,
     "when_to_say": "When describing someone who is humble or modest.",
-    "example": "He was an ödmjuk person despite his great success."
+    "example": "He was an ödmjuk person despite his great success.",
+    "learners": 1412
   },
   {
     "Id": "04",
@@ -41,7 +46,8 @@
     "difficulty": "Medium",
     "Lesson_no": 4,
     "when_to_say": "When talking about someone who doesn’t give up easily.",
-    "example": "Her envishet helped her reach her goals."
+    "example": "Her envishet helped her reach her goals.",
+    "learners": 968
   },
   {
     "Id": "05",
@@ -52,7 +58,8 @@
     "difficulty": "Medium",
     "Lesson_no": 5,
     "when_to_say": "When talking about strong bonds within a group.",
-    "example": "There was a sense of kamratskap among the colleagues."
+    "example": "There was a sense of kamratskap among the colleagues.",
+    "learners": 1597
   },
   {
     "Id": "06",
@@ -63,7 +70,8 @@
     "difficulty": "Easy",
     "Lesson_no": 6,
     "when_to_say": "When something shines brightly or is impressive.",
-    "example": "Her ideas were lysande and impressed everyone."
+    "example": "Her ideas were lysande and impressed everyone.",
+    "learners": 1350
   },
   {
     "Id": "07",
@@ -74,7 +82,8 @@
     "difficulty": "Easy",
     "Lesson_no": 7,
     "when_to_say": "When someone is not paying attention to what’s happening.",
-    "example": "He was omedveten that the meeting had already started."
+    "example": "He was omedveten that the meeting had already started.",
+    "learners": 1423
   },
   {
     "Id": "08",
@@ -85,7 +94,8 @@
     "difficulty": "Easy",
     "Lesson_no": 8,
     "when_to_say": "When describing a peaceful and relaxed state.",
-    "example": "She enjoyed the lugn of nature."
+    "example": "She enjoyed the lugn of nature.",
+    "learners": 1050
   },
   {
     "Id": "09",
@@ -96,7 +106,8 @@
     "difficulty": "Medium",
     "Lesson_no": 9,
     "when_to_say": "When describing someone who is careful and detail-oriented.",
-    "example": "His noggranna work impressed the boss."
+    "example": "His noggranna work impressed the boss.",
+    "learners": 1170
   },
   {
     "Id": "10",
@@ -107,7 +118,8 @@
     "difficulty": "Difficult",
     "Lesson_no": 10,
     "when_to_say": "When something seems to be everywhere.",
-    "example": "Social media is allestädes närvarande in modern society."
+    "example": "Social media is allestädes närvarande in modern society.",
+    "learners": 1265
   },
   {
     "Id": "11",

@@ -3,7 +3,6 @@ import { AuthContext } from "../../providers/Network";
 import {
   ComposedChart,
   Line,
-  Area,
   Bar,
   XAxis,
   YAxis,
@@ -16,11 +15,11 @@ import {
 const CourseStatistics = () => {
   const { swedishData } = useContext(AuthContext);
 
-
+  // Only include lesson number and learners for comparison
   const data = swedishData && swedishData.length > 0
-    ? swedishData.map(item => ({
+    ? swedishData.slice(0, 10).map(item => ({
         name: `Lesson ${item.Lesson_no}`,
-        difficulty: item.difficulty,
+        learners: item.learners,
         lesson_no: item.Lesson_no,
       }))
     : []; 
@@ -31,7 +30,7 @@ const CourseStatistics = () => {
 
   return (
     <div style={{ textAlign: "center" }} className="p-2">
-      <h2>Course Statistics</h2>
+      <h2 className=" shadow-2xl text-orange-500 text-xl mb-2">Course vs Students in 2024</h2>
       <ResponsiveContainer width="100%" height={400}>
         <ComposedChart data={data}>
           <CartesianGrid stroke="#f5f5f5" />
@@ -39,9 +38,8 @@ const CourseStatistics = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Area type="monotone" dataKey="lesson_no" fill="#8884d8" stroke="#8884d8" name="Lesson Number" />
-          <Bar dataKey="lesson_no" barSize={20} fill="#413ea0" name="Lesson Number" />
-          <Line type="monotone" dataKey="lesson_no" stroke="#ff7300" name="Lesson Trend" />
+          <Bar dataKey="learners" barSize={20} fill="#413ea0" name="Learners Count" />
+          <Line type="monotone" dataKey="learners" stroke="#ff7300" name="Learners Trend" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>

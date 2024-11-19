@@ -20,16 +20,17 @@ export const AuthContext = createContext(null);
 
 const Network = ({children}) => {
   // const data = useLoaderData(); 
+
  
 
-
+// const [userDataOnRegOrUpdate, setUserOnRegOrUpdate] = useState(null);// for temp use 
 const [user, setUser]=useState(null);
 const [loading, setLoading]=useState(true);
 const [swedishData, setSwedishData] = useState(null); // State to store Swedish data
 
 
 const provider = new GoogleAuthProvider();
-const gitProvider = new GithubAuthProvider();
+
 
 // fetchi data
   // Fetch data from swedish.json in useEffect
@@ -52,9 +53,11 @@ const gitProvider = new GithubAuthProvider();
   }, []);
 
 
-function createUser (email,password){
-   return createUserWithEmailAndPassword(auth,email,password)
-}
+  function createUser(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password)
+      
+  }
+  
 //sign in
 function SignInUser (email,password){
   return  signInWithEmailAndPassword(auth, email, password)
@@ -131,19 +134,51 @@ function signOutUser(){
   }
 
 
+//After each update im rerendring to catch the updated info of user 
 
 
+useEffect(() => {
+  // This effect will trigger every time `user` changes
+
+}, [user]);
+// set user from registration 
+
+  const updateUser = (updatedUser) => {
+    setUser(updatedUser); // Update the user state in context
+  };
+
+
+
+ //refreshing user state 
+//  const refreshUser = async () => {
+//   const currentUser = auth.currentUser;
+//   if (currentUser) {
+//     await currentUser.reload();
+//     setUser(auth.currentUser);  // Update `user` state to reflect new data
+//   }
+// };
+
+// const updateUserProfile = async (name, photoUrl) => {
+//   if (auth.currentUser) {
+//     await updateProfile(auth.currentUser, { displayName: name, photoURL: photoUrl });
+//     await refreshUser(); // Ensure user state reflects the update
+//   }
+// };
+
+
+//---------------- ---------- - - -- - - - -- - - - - - -- - - - -
 
 //adding to props list
-  const authInfo={
+const authInfo={
 
-    createUser,user,loading,SignInUser ,
-    signOutUser,setUser,handleGoogleSignIn,
-    swedishData,handleUpdateUser
+  createUser,user,loading,SignInUser ,
+  signOutUser,setUser,handleGoogleSignIn,
+  swedishData,handleUpdateUser,setUser,updateUser ,
+  // updateUserProfile,
+  //setUserOnRegOrUpdate
 
 
- }
-
+}
     return ( 
     
     <AuthContext.Provider value={authInfo }>
