@@ -6,6 +6,8 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/Network";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ReactTyped } from 'react-typed';
+
 
 
 const MainLayout = () => {
@@ -34,10 +36,23 @@ const MainLayout = () => {
 
           <div className="text-center text-green-600 text-4xl my-6 font-extrabold">
         {user ? (
-          <div >Hello! {user?.displayName || "User"}</div>
-        ) : (
-          <div>Scandinavian Learn</div>
+          <div >Välkommen till!! {user?.displayName || "User"}</div>
+        ) : 
+        
+        
+        (
+          <ReactTyped
+          strings={["Välkommen!", "Scandinavian Learn"]}
+          typeSpeed={100} // Speed of typing
+          backSpeed={50} // Speed of backspacing
+          backDelay={1000} // Delay before backspacing
+          startDelay={500} // Delay before typing starts
+          loop={false} // Set to true for infinite loop
+        />
         )}
+
+
+
       </div>
     <div className="">    <Navbar></Navbar></div>
   <div className=" ">

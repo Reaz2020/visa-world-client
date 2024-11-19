@@ -23,6 +23,7 @@
     "react-social-icons": "^6.18.0",
     "react-svg-loader": "^3.0.3",
     "react-toastify": "^10.0.6",
+    "react-typed": "^2.0.12",
     "recharts": "^2.13.3",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.14"

@@ -56,6 +56,7 @@ function handleSignOut(){
         <li>   <NavLink to='/start-learning'> Start-Learning</NavLink> </li>
         
         <li>   <NavLink to='/tutorial'> Tutorial</NavLink> </li>
+        <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
       </ul>
     </div>
     <a className="btn btn-ghost text-xl"><img className="w-10 h-10 border-8 border-green-400 rounded-full" src="/logo.png" alt="" /></a>

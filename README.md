@@ -42,7 +42,7 @@ react-toastify: For displaying toast notifications.
 aos: For animations on scroll.
 react: The core library for building the user interface.
 react-dom: For rendering React components to the DOM.
-
+react-typed
 
 
 
