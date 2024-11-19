@@ -120,6 +120,15 @@ const Register = () => {
         <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-3 mt-4 rounded-full">
           Register
         </button>
+              {/* Social Login Button */}
+      <div className="mt-6 text-center">
+        <button
+          onClick={handleGoogleSignInLocally}
+          className="bg-red-500 hover:bg-red-600 text-white py-3 px-8 rounded-full w-full"
+        >
+          Register with Google
+        </button>
+      </div>
       </form>
 
       {/* Link to Login */}
@@ -130,20 +139,12 @@ const Register = () => {
         </p>
       </div>
 
-      {/* Social Login Button */}
-      <div className="mt-6 text-center">
-        <button
-          onClick={handleGoogleSignInLocally}
-          className="bg-red-500 hover:bg-red-600 text-white py-3 px-8 rounded-full"
-        >
-          Register with Google
-        </button>
-      </div>
+
 
       {/* Go to Home Page Button */}
       <div className="text-center mt-8">
         <button
-          className="bg-blue-500 hover:bg-blue-600 text-white py-3 mt-4 rounded-full"
+          className="bg-blue-500 hover:bg-blue-600 text-white p-6 mt-4 rounded-full"
           onClick={handleNavigate}
         >
           Go to Home

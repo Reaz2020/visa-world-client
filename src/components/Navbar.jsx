@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../providers/Network";
 import { Navigate, useNavigate } from "react-router-dom";
+
 const Navbar = () => {
   const { user ,  signOutUser,handleGoogleSignIn} = useContext(AuthContext);
 
@@ -17,8 +18,10 @@ function handleSignOut(){
 
 
 
-    return ( <div className="border-2">
-        <div className="navbar bg-base-100">
+    return ( 
+    
+    <div className="border-2 bg-sky-300">
+        <div className="navbar ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -89,7 +92,7 @@ function handleSignOut(){
   
      user? <li className="list-none"> <div className="flex gap-2 items-center justify-center">
     <img className="h-10 w-10 border-2 rounded-full bg-slate-400" src={user.photoURL}  alt="" /> 
-    <button onClick={ handleSignOut}>log out</button></div></li> : 
+    <button className="btn  bg-green-400" onClick={ handleSignOut}>log out</button></div></li> : 
 
   <li className="btn bg-green-400">   <NavLink to='/login'> Login</NavLink> </li>
       

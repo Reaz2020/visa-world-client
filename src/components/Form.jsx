@@ -58,17 +58,14 @@ const Form = () => {
     <div className="container mx-auto border-2">
       {/* Navigation buttons */}
       <div className="text-center mb-4">
+
+        <p> Don't have account? register for free </p>
+     
         <button
-          className="border-2 bg-lime-400 hover:bg-lime-600 w-32 rounded-full p-4"
-          onClick={handleNavigate}
-        >
-          Home
-        </button>
-        <button
-          className="border-2 bg-lime-400 hover:bg-lime-600 w-32 rounded-full p-4"
+          className="border-2 bg-lime-400 hover:bg-lime-600 w-32 rounded-xl p-2"
           onClick={handleNavigateToRegister}
         >
-          Register
+         Register 
         </button>
       </div>
 
@@ -113,9 +110,7 @@ const Form = () => {
         <button className="btn btn-primary w-full p-2 mt-4" type="submit">
           Login
         </button>
-      </form>
-
-      {/* Google Login Button */}
+              {/* Google Login Button */}
       <div className="mt-4">
         <button
           className="btn btn-primary w-full p-2"
@@ -124,12 +119,15 @@ const Form = () => {
           Log in with Google
         </button>
       </div>
+      </form>
+
+
 
       {/* Forgot Password Link */}
       <div className="text-center mt-4">
         <button
           onClick={handleNavigateToForgotPassword}
-          className="text-blue-500 underline"
+          className="text-blue-800 underline my-6"
         >
           Forgot Password?
         </button>

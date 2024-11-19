@@ -6,6 +6,8 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/Network";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 const MainLayout = () => {
 
 
@@ -14,7 +16,7 @@ const MainLayout = () => {
 
 
 
-    return ( <div className="w-full px-4">
+    return ( <div className="w-full px-4 bg-sky-200 ">
             <ToastContainer
   position="top-right"
   autoClose={3000} // Closes after 3 seconds
@@ -27,7 +29,10 @@ const MainLayout = () => {
   pauseOnHover
   theme="light"
 />
-          <div className="text-center text-green-600 text-4xl my-6">
+
+
+
+          <div className="text-center text-green-600 text-4xl my-6 font-extrabold">
         {user ? (
           <div >Hello! {user?.displayName || "User"}</div>
         ) : (

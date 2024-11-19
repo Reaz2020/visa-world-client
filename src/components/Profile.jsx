@@ -43,10 +43,10 @@ const Profile = () => {
           height: '300px',
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-overlay bg-orange-600 bg-opacity-60"></div>
         <div className="hero-content text-neutral-content">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold text-center text-white"> Hello! <br /> {user.displayName} Welcome to Your Dashboard</h1>
+            <h1 className="text-3xl font-bold text-center text-white"> Hello! {user.displayName} Welcome to Your Dashboard</h1>
           </div>
         </div>
       </div>

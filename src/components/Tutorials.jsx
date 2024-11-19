@@ -5,12 +5,12 @@ const Tutorials = () => {
   // List of YouTube video links for language tutorials
   const videos = [
     "https://www.youtube.com/embed/kqeEfqe6gMw?autoplay=1", 
-    "https://www.youtube.com/embed/uM-OgxS8bZg?autoplay=1",
-    "https://www.youtube.com/embed/aGoC_gVjdr4?autoplay=1", 
-    "https://www.youtube.com/embed/IPU9kJ4sGGU?autoplay=1", 
-    "https://www.youtube.com/embed/NnZ4uBYeqiM?autoplay=1", 
-    "https://www.youtube.com/embed/6JDvVpK8Knk?autoplay=1", 
-    "https://www.youtube.com/embed/6JDvVpK8Knk?autoplay=1&si=3fa65jrqKjILsyzX",
+    "https://www.youtube.com/embed/uM-OgxS8bZg",
+    "https://www.youtube.com/embed/aGoC_gVjdr4", 
+    "https://www.youtube.com/embed/IPU9kJ4sGGU", 
+    "https://www.youtube.com/embed/NnZ4uBYeqiM", 
+    "https://www.youtube.com/embed/6JDvVpK8Knk", 
+    "https://www.youtube.com/embed/6JDvVpK8Knk",
   ];
 
   return (
