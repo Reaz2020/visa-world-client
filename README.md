@@ -9,6 +9,16 @@ The **Scandinavian Language Learning Platform** is an interactive online applica
 
 [Visit the Scandinavian Language Learning Platform 'Scandinavian Learn'](https://assignment-9-a729b.web.app/)
 
+
+- **NPM Packages Used**:
+react-router-dom: For routing and navigation.
+react-toastify: For displaying toast notifications.
+aos: For animations on scroll.
+react: The core library for building the user interface.
+react-dom: For rendering React components to the DOM.
+react-typed
+Swiper slider 
+
 ## Key Features
 
 - **Video Lessons**: Watch engaging videos that demonstrate different aspects of Swedish grammar, vocabulary, and usage.
@@ -36,13 +46,7 @@ The **Scandinavian Language Learning Platform** is an interactive online applica
 
 
 
-- **NPM Packages Used**:
-react-router-dom: For routing and navigation.
-react-toastify: For displaying toast notifications.
-aos: For animations on scroll.
-react: The core library for building the user interface.
-react-dom: For rendering React components to the DOM.
-react-typed
+
 
 
 test url 
