@@ -66,7 +66,7 @@ const MyVisas = () => {
               <p>Visa Title: {visa.title}</p>
               <p>Country: {visa.country}</p>
               <p>Issued Date: {visa.issuedDate}</p>
-              <p>Email: {visa.email}</p>
+              <p>Email: {visa.userEmail}</p>
               <button
                 className="btn-primary btn text-xl"
                 onClick={() => handleRemoveVisa(visa._id)}

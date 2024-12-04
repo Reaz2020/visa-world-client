@@ -36,6 +36,29 @@ const MyVisaApplications = () => {
     }
   };
 
+  const handleRemoveApplication = async (applicationId) => {
+    try {
+      const response = await fetch("http://localhost:9000/delete-application", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ applicationId }), // Send the applicationId in the body
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to remove application");
+      }
+
+      // Remove the deleted application from the state list
+      setApplications((prevApplications) =>
+        prevApplications.filter((application) => application._id !== applicationId)
+      );
+    } catch (error) {
+      setError(error.message); // Set error message if something goes wrong
+    }
+  };
+
   if (loading) return <p>Loading your visa applications...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -50,7 +73,13 @@ const MyVisaApplications = () => {
               <p>Country: {application.countryName}</p>
               <p>Applied Date: {application.appliedDate}</p>
               <p>Email: {application.email}</p>
-             <button className="btn-primary btn  text-xl">remove x</button>
+            
+              <button
+                className="btn-primary btn text-xl"
+                onClick={() => handleRemoveApplication(application._id)} // Call handleRemoveApplication when clicked
+              >
+                Remove x
+              </button>
               {/* Add more application details as needed */}
             </li>
          
