@@ -111,10 +111,14 @@ function handleSignOut(){
      user? <li className="list-none"> <div className="flex gap-2 items-center justify-center">
     <img className="h-10 w-10 border-2 rounded-full bg-slate-400" src={userDataToShowOnNavbar?.photo}  alt="" /> 
     <button className="btn  bg-violet-500 text-white" onClick={ handleSignOut}>log out</button></div></li> : 
+    <div> <li className="btn bg-violet-500 text-white">   <NavLink to='/login'> Login</NavLink> </li>
+     <li className="btn bg-violet-500 text-white">   <NavLink to='/register'> Register</NavLink> </li></div>
 
-  <li className="btn bg-violet-500 text-white">   <NavLink to='/login'> Login / Register</NavLink> </li>
+ 
+  
       
     }
+     
   </div>
 </div>
     </div> );

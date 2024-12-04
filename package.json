@@ -13,6 +13,8 @@
     "@fontsource/roboto": "^5.1.0",
     "@react-awesome/components": "^1.0.22",
     "aos": "^2.3.4",
+    "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
     "firebase": "^11.0.1",
     "font": "^0.0.4",
     "react": "^18.3.1",

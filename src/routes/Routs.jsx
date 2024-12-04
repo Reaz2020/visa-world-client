@@ -9,7 +9,7 @@ import MyVisaApplications from '../components/MyVisaApplications';
 import AllVisas from '../components/AllVisas';
 import AddVisa from '../components/AddVisa';
 import Home from '../components/Home';
-
+import VisaDetails from '../components/VisaDetails';  // Import VisaDetails
 import NotFound from '../components/NotFound'; 
 import ForgetPassword from '../components/ForgetPassword';
 import UpdateProfile from './UpdateProfile';
@@ -51,6 +51,11 @@ const Routes = createBrowserRouter([
       {
         path: 'my-added-visas',
         element: <PrivateRoute><MyAddedVisas /></PrivateRoute>,
+      },
+       //  VisaDetails route, protected by PrivateRoute
+       {
+        path: 'visa-details/:id',
+        element: <PrivateRoute><VisaDetails /></PrivateRoute>, // Visa details page
       },
       {
         path: 'my-visa-applications',
