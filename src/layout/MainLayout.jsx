@@ -42,7 +42,7 @@ const MainLayout = () => {
         
         (
           <ReactTyped
-          strings={["Welcome to global VISA Portal!", "Global visa solutions", "A guide to your travel and tour"]}
+          strings={["Welcome to global VISA Portal!", "A guide to your travel and tour"]}
           typeSpeed={100} 
           backSpeed={50} 
           backDelay={1000} 
