@@ -45,14 +45,17 @@ const MyVisaApplications = () => {
       {applications.length > 0 ? (
         <ul>
           {applications.map((application, index) => (
-            <li key={index} className="border-2 lg:grid lg:grid-cols-4 my-6">
+            <li key={index} className="border-2 lg:grid lg:grid-cols-5 my-6 p-4">
               <p>Visa Type: {application.visaType}</p>
               <p>Country: {application.countryName}</p>
               <p>Applied Date: {application.appliedDate}</p>
               <p>Email: {application.email}</p>
+             <button className="btn-primary btn  text-xl">remove x</button>
               {/* Add more application details as needed */}
             </li>
+         
           ))}
+             
         </ul>
       ) : (
         <p>No applications found.</p>
