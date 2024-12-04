@@ -4,11 +4,12 @@ import Form from '../components/Form';
 import Register from '../components/Register';
 import Profile from '../components/Profile';
 import PrivateRoute from '../components/PrivateRoute';
-import History from '../components/History';
-import StartLearning from '../components/StartLearning';
-import Tutorial from '../components/Tutorials';
+import MyAddedVisas from '../components/MyAddedVisas';
+import MyVisaApplications from '../components/MyVisaApplications';
+import AllVisas from '../components/AllVisas';
+import AddVisa from '../components/AddVisa';
 import Home from '../components/Home';
-import Lesson from '../components/Lesson';
+
 import NotFound from '../components/NotFound'; 
 import ForgetPassword from '../components/ForgetPassword';
 import UpdateProfile from './UpdateProfile';
@@ -28,12 +29,12 @@ const Routes = createBrowserRouter([
         element: <PrivateRoute><Home /></PrivateRoute>,
       },
       {
-        path: 'start-learning',
-        element: <StartLearning />,
+        path: 'all-visas',
+        element: <AllVisas/>,
       },
       {
-        path: 'tutorial',
-        element: <PrivateRoute><Tutorial /></PrivateRoute>,
+        path: 'add-visa',
+        element: <PrivateRoute><AddVisa /></PrivateRoute>,
       },
       {
         path: 'login',
@@ -48,13 +49,14 @@ const Routes = createBrowserRouter([
         element: <PrivateRoute><Profile /></PrivateRoute>,
       },
       {
-        path: 'history',
-        element: <PrivateRoute><History /></PrivateRoute>,
+        path: 'my-added-visas',
+        element: <PrivateRoute><MyAddedVisas /></PrivateRoute>,
       },
       {
-        path: 'lessons/:lesson_no',
-        element: <PrivateRoute><Lesson /></PrivateRoute>,
+        path: 'my-visa-applications',
+        element: <PrivateRoute><MyVisaApplications/></PrivateRoute>,
       },
+   
       {
         path: '/forgot-password',
         element: <ForgetPassword/>,
@@ -81,4 +83,3 @@ const Routes = createBrowserRouter([
 export default Routes;
 
 
-///forgot-password

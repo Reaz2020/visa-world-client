@@ -30,7 +30,7 @@ const CourseStatistics = () => {
 
   return (
     <div style={{ textAlign: "center" }} className="p-2">
-      <h2 className=" shadow-2xl text-orange-500 text-xl mb-2">Course vs Students in 2024</h2>
+      <h2 className=" shadow-2xl text-3xl mb-2">VISA RATION ON DIFFERENT COUNTRIES</h2>
       <ResponsiveContainer width="100%" height={400}>
         <ComposedChart data={data}>
           <CartesianGrid stroke="#f5f5f5" />

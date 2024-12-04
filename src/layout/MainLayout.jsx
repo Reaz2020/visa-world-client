@@ -11,7 +11,7 @@ import { ReactTyped } from 'react-typed';
 
 
 const MainLayout = () => {
-
+ 
 
     const { user} = useContext(AuthContext);
 
@@ -34,15 +34,15 @@ const MainLayout = () => {
 
 
 
-          <div className="text-center text-green-600 text-4xl my-6 font-extrabold">
+          <div className="text-center text-4xl my-6 font-extrabold">
         {user ? (
-          <div >Välkommen till!! {user?.displayName || "User"}</div>
+          <div >Welcome !! {user?.displayName || "User"}</div>
         ) : 
         
         
         (
           <ReactTyped
-          strings={["Välkommen!", "Scandinavian Learn", "A free Swedish Learning platform"]}
+          strings={["Welcome to global VISA Portal!", "Global visa solutions", "A guide to your travel and tour"]}
           typeSpeed={100} 
           backSpeed={50} 
           backDelay={1000} 

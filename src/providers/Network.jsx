@@ -88,29 +88,7 @@ function handleGoogleSignIn(){
 
 }
 
-//sign in with github 
 
-// function handleGitSignIn(){
-//     signInWithPopup(auth, gitProvider)
-//     .then((result) => {
-//       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-//       const credential = GithubAuthProvider.credentialFromResult(result);
-//       const token = credential.accessToken;
-  
-//       // The signed-in user info.
-//       const user = result.user;
-//       // IdP data available using getAdditionalUserInfo(result)
-//       // ...
-//     }).catch((error) => {
-//       // Handle Errors here.
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       // The email of the user's account used.
-//       const email = error.customData.email;
-//       // The AuthCredential type that was used.
-//       const credential = GithubAuthProvider.credentialFromError(error);
-//       // ...
-//     });}
 
 
 //update 
@@ -147,23 +125,6 @@ useEffect(() => {
     setUser(updatedUser); // Update the user state in context
   };
 
-
-
- //refreshing user state 
-//  const refreshUser = async () => {
-//   const currentUser = auth.currentUser;
-//   if (currentUser) {
-//     await currentUser.reload();
-//     setUser(auth.currentUser);  // Update `user` state to reflect new data
-//   }
-// };
-
-// const updateUserProfile = async (name, photoUrl) => {
-//   if (auth.currentUser) {
-//     await updateProfile(auth.currentUser, { displayName: name, photoURL: photoUrl });
-//     await refreshUser(); // Ensure user state reflects the update
-//   }
-// };
 
 
 //---------------- ---------- - - -- - - - -- - - - - - -- - - - -

@@ -28,9 +28,10 @@ modules={[Pagination,Navigation,Autoplay]}
       pagination={{clickable:true}}
    
     >
-      <SwiperSlide><img className='w-full lg:h-96' src="/swe1.png" alt="" /></SwiperSlide>
-      <SwiperSlide><img className='w-full lg:h-96' src="/swe2.png" alt="" /></SwiperSlide>
-      <SwiperSlide><img className='w-full lg:h-96' src="/swe3.png" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='w-full lg:h-96' src="/img-8.png" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='w-full lg:h-96' src="/img-1.png" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='w-full lg:h-96' src="/img-3.png" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='w-full lg:h-96' src="/img-9.png" alt="" /></SwiperSlide>
     
    
     </Swiper>

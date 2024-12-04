@@ -36,7 +36,7 @@ function handleSignOut(){
 
     return ( 
     
-    <div className="border-2 bg-sky-300 rounded-lg">
+    <div className="border-2  rounded-lg">
         <div className="navbar ">
   <div className="navbar-start">
     <div className="dropdown">
@@ -63,26 +63,28 @@ function handleSignOut(){
                         <li>
                             <NavLink to="/profile">Profile</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/history">History</NavLink>
-                        </li>
+                       
                     </>
                 )}
         
-        <li>   <NavLink to='/start-learning'> Start-Learning</NavLink> </li>
+        <li>   <NavLink to='/all-visas'> All-visas</NavLink> </li>
         
-        <li>   <NavLink to='/tutorial'> Tutorial</NavLink> </li>
+        <li>   <NavLink to='/tutorial'> Add Visa</NavLink> </li>
+        <li>   <NavLink to='/my-added-visas'> My Added Visas</NavLink> </li>
+        <li>   <NavLink to='/my-visa-applications'> My Visa Applications</NavLink> </li>
         <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl"><img className="w-10 h-10 border-8 border-green-400 rounded-full" src="/logo.png" alt="" /></a>
+    <a className="btn btn-ghost text-xl"><img className="w-14 h-14 border-8  rounded-full" src="/logo.png" alt="" /></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
     <li>   <NavLink to='/'> Home</NavLink> </li>
-    <li>   <NavLink to='/start-learning'> Start-Learning</NavLink> </li>
-    <li>   <NavLink to='/tutorial'> Tutorial</NavLink> </li>
+    <li>   <NavLink to='/all-visas'> All-Visas</NavLink> </li>
+    <li>   <NavLink to='/add-visa'> Add Visa</NavLink> </li>
     <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
+    <li>   <NavLink to='/my-added-visas'> My Added Visas</NavLink> </li>
+    <li>   <NavLink to='/my-visa-applications'> My Visa Applications</NavLink> </li>
 
      
     
@@ -92,9 +94,7 @@ function handleSignOut(){
                         <li>
                             <NavLink to="/profile">Profile</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/history">History</NavLink>
-                        </li>
+                       
                     </>
                 )}
    
@@ -110,9 +110,9 @@ function handleSignOut(){
   
      user? <li className="list-none"> <div className="flex gap-2 items-center justify-center">
     <img className="h-10 w-10 border-2 rounded-full bg-slate-400" src={userDataToShowOnNavbar?.photo}  alt="" /> 
-    <button className="btn  bg-green-400" onClick={ handleSignOut}>log out</button></div></li> : 
+    <button className="btn  bg-violet-500 text-white" onClick={ handleSignOut}>log out</button></div></li> : 
 
-  <li className="btn bg-green-400">   <NavLink to='/login'> Login</NavLink> </li>
+  <li className="btn bg-violet-500 text-white">   <NavLink to='/login'> Login / Register</NavLink> </li>
       
     }
   </div>
