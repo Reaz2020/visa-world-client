@@ -4,7 +4,11 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}", // Path to your template files
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+      'spin-slow': 'spin 6s linear infinite',
+    },
+  },
   },
   plugins: [
     require('daisyui'),
