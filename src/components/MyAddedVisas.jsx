@@ -38,7 +38,7 @@ const MyVisas = () => {
 
   const handleRemoveVisa = async (visaId) => {
     try {
-      const response = await fetch(`http://localhost:9000/remove-visa/${visaId}`, {
+      const response = await fetch(`http://localhost:9000/remove-my-added-visa/${visaId}`, {
         method: "DELETE",
       });
 

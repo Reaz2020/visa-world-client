@@ -1,7 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useContext} from "react";
+import { AuthContext } from "../providers/Network";
 
 const VisaDetails = ({ loggedInUser }) => {
+  const { user } = useContext(AuthContext);
   const { id } = useParams(); // Get 'id' from the URL
   const [visaData, setVisaData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
@@ -52,7 +55,7 @@ const VisaDetails = ({ loggedInUser }) => {
     e.preventDefault();
   
     const applicationData = {
-      email: formData.email,
+      email: user?.email,
       firstName: formData.firstName,
       lastName: formData.lastName,
       appliedDate: formData.appliedDate,
@@ -119,7 +122,7 @@ const VisaDetails = ({ loggedInUser }) => {
                 <input
                   type="email"
                   name="email"
-                  value={formData.email}
+                  value={user?.email}
                   readOnly
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100"
                 />
