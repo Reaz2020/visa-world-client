@@ -6,6 +6,8 @@ const MyVisas = () => {
   const [visas, setVisas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVisa, setSelectedVisa] = useState(null);
 
   useEffect(() => {
     if (user && user.email) {
@@ -53,6 +55,44 @@ const MyVisas = () => {
     }
   };
 
+  const handleEditVisa = (visa) => {
+    setSelectedVisa(visa);
+    setIsModalOpen(true);
+  };
+
+  const handleUpdateVisa = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`http://localhost:9000/update-visa/${selectedVisa._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(selectedVisa)
+      })
+  
+      if (!response.ok) {
+        throw new Error("Failed to update visa");
+      }
+  
+      const updatedVisa = await response.json();
+      console.log(updatedVisa.countryName + ' updated response')
+  
+      // Update the visa in state
+      setVisas((prevVisas) =>
+        prevVisas.map((visa) => (visa._id === updatedVisa._id ? updatedVisa : visa))
+      );
+
+
+
+    } catch (error) {
+      console.error("Error updating visa:", error.message);
+    } finally {
+      setIsModalOpen(false); // Close modal regardless of success or failure
+    }
+  };
+  
+
   if (loading) return <p>Loading your visas...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -62,24 +102,193 @@ const MyVisas = () => {
       {visas.length > 0 ? (
         <ul>
           {visas.map((visa, index) => (
-            <li key={index} className="border-2 lg:grid lg:grid-cols-5 my-6 p-4">
-              <p>Visa Title: {visa.title}</p>
-              <p>Country: {visa.country}</p>
-              <p>Issued Date: {visa.issuedDate}</p>
+            <li key={index} className="border-8 shadow-2xl rounded-xl lg:grid lg:grid-cols-4 gap-8 my-6 p-4 ">
+              <p>Visa Title: {visa.visaType}</p>
+              <p>Country: {visa.countryName}</p>
+              <p>Description: {visa.description}</p>
               <p>Email: {visa.userEmail}</p>
-              <button
-                className="btn-primary btn text-xl"
-                onClick={() => handleRemoveVisa(visa._id)}
-              >
-                Remove X
-              </button>
-              {/* Add more visa details as needed */}
+              <p>processing time: {visa.processingTime}</p>
+              <p>age res: {visa.ageRestriction}</p>
+              <p>fee: {visa.fee}</p>
+              <div className="flex gap-2">
+                <button
+                  className="btn-secondary btn text-xl"
+                  onClick={() => handleRemoveVisa(visa._id)}
+                >
+                  Remove X
+                </button>
+                <button
+                  className="btn-primary btn text-xl"
+                  onClick={() => handleEditVisa(visa)}
+                >
+                  Edit
+                </button>
+              </div>
             </li>
           ))}
         </ul>
       ) : (
         <p>No visas found.</p>
       )}
+
+      {/* Modal for Editing Visa */}
+      {isModalOpen && selectedVisa && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div className="bg-white p-6 rounded-lg w-1/2">
+      <h2 className="text-xl mb-4">Edit Visa</h2>
+      <form onSubmit={handleUpdateVisa}>
+        {/* Country Name */}
+        <div className="mb-4">
+          <label className="block mb-2">Country Name</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.countryName || ""}
+            onChange={(e) =>
+              setSelectedVisa({ ...selectedVisa, countryName: e.target.value })
+            }
+          />
+        </div>
+
+        {/* Country Image */}
+        <div className="mb-4">
+          <label className="block mb-2">Country Image URL</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.countryImage || ""}
+            onChange={(e) =>
+              setSelectedVisa({ ...selectedVisa, countryImage: e.target.value })
+            }
+          />
+        </div>
+
+        {/* Visa Type */}
+        <div className="mb-4">
+          <label className="block mb-2">Visa Type</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.visaType || ""}
+            onChange={(e) =>
+              setSelectedVisa({ ...selectedVisa, visaType: e.target.value })
+            }
+          />
+        </div>
+
+        {/* Processing Time */}
+        <div className="mb-4">
+          <label className="block mb-2">Processing Time</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.processingTime || ""}
+            onChange={(e) =>
+              setSelectedVisa({
+                ...selectedVisa,
+                processingTime: e.target.value,
+              })
+            }
+          />
+        </div>
+
+        {/* Required Documents - Description */}
+        <div className="mb-4">
+          <label className="block mb-2">Required Documents Description</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.requiredDocuments?.description || ""}
+            onChange={(e) =>
+              setSelectedVisa({
+                ...selectedVisa,
+                requiredDocuments: {
+                  ...selectedVisa.requiredDocuments,
+                  description: e.target.value,
+                },
+              })
+            }
+          />
+        </div>
+
+        {/* Required Documents - Age Restriction */}
+        <div className="mb-4">
+          <label className="block mb-2">Age Restriction</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.requiredDocuments?.ageRestriction || ""}
+            onChange={(e) =>
+              setSelectedVisa({
+                ...selectedVisa,
+                requiredDocuments: {
+                  ...selectedVisa.requiredDocuments,
+                  ageRestriction: e.target.value,
+                },
+              })
+            }
+          />
+        </div>
+
+        {/* Fee */}
+        <div className="mb-4">
+          <label className="block mb-2">Fee</label>
+          <input
+            type="number"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.fee || ""}
+            onChange={(e) =>
+              setSelectedVisa({ ...selectedVisa, fee: e.target.value })
+            }
+          />
+        </div>
+
+        {/* Validity */}
+        <div className="mb-4">
+          <label className="block mb-2">Validity</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.validity || ""}
+            onChange={(e) =>
+              setSelectedVisa({ ...selectedVisa, validity: e.target.value })
+            }
+          />
+        </div>
+
+        {/* Application Method */}
+        <div className="mb-4">
+          <label className="block mb-2">Application Method</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.applicationMethod || ""}
+            onChange={(e) =>
+              setSelectedVisa({
+                ...selectedVisa,
+                applicationMethod: e.target.value,
+              })
+            }
+          />
+        </div>
+
+        <div className="flex justify-end gap-4">
+          <button
+            type="button"
+            className="btn-secondary btn"
+            onClick={() => setIsModalOpen(false)}
+          >
+            Cancel
+          </button>
+          <button type="submit" className="btn-primary btn">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
