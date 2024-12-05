@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/Network";
 
 const MyVisas = () => {
+  const visaTypes = ["Tourist visa", "Student visa", "Official visa", "Business visa", "Transit visa"];
   const { user } = useContext(AuthContext); // Get logged-in user from context
   const [visas, setVisas] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -91,8 +92,32 @@ const MyVisas = () => {
       setIsModalOpen(false); // Close modal regardless of success or failure
     }
   };
+  // onnly for checkbox 
+  const handleCheckboxChange = (doc) => {
+    setSelectedVisa((prevVisa) => {
+      const isChecked = prevVisa.requiredDocuments.includes(doc);
+      
+      // If document is checked, remove it from the array; otherwise, add it.
+      const updatedDocuments = isChecked
+        ? prevVisa.requiredDocuments.filter((item) => item !== doc) // Remove if checked
+        : [...prevVisa.requiredDocuments, doc]; // Add if not checked
   
-
+      // Return a new object to update state, preserving previous state values
+      return {
+        ...prevVisa, 
+        requiredDocuments: updatedDocuments, // Update requiredDocuments array
+      };
+    });
+  };
+  
+// Handle the change event for the dropdown
+const handleVisaTypeChange = (event) => {
+  const newVisaType = event.target.value;
+  setSelectedVisa((prevSelectedVisa) => ({
+    ...prevSelectedVisa,
+    visaType: newVisaType, // Update the visaType in selectedVisa state
+  }));
+};
   if (loading) return <p>Loading your visas...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -110,6 +135,7 @@ const MyVisas = () => {
               <p>processing time: {visa.processingTime}</p>
               {/* this line made problem before age restriction  */}
               <p>age res: {visa.ageRestriction}</p> 
+              <p>req doc: {visa.requiredDocuments[0]}</p> 
               <p>fee: {visa.fee}</p>
               <div className="flex gap-2">
                 <button
@@ -134,7 +160,7 @@ const MyVisas = () => {
 
       {/* Modal for Editing Visa */}
       {isModalOpen && selectedVisa && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center  ">
     <div className="bg-white p-6 rounded-lg w-1/2">
       <h2 className="text-xl mb-4">Edit Visa</h2>
       <form onSubmit={handleUpdateVisa}>
@@ -165,17 +191,26 @@ const MyVisas = () => {
         </div>
 
         {/* Visa Type */}
-        <div className="mb-4">
-          <label className="block mb-2">Visa Type</label>
-          <input
-            type="text"
-            className="w-full border p-2 rounded"
-            value={selectedVisa.visaType || ""}
-            onChange={(e) =>
-              setSelectedVisa({ ...selectedVisa, visaType: e.target.value })
-            }
-          />
-        </div>
+  {/* Visa Type Dropdown */}
+  <div className="mb-4">
+        <label className="block mb-2">Visa Type</label>
+        <select
+          value={selectedVisa.visaType} // Preselect the value from selectedVisa.visaType
+          onChange={handleVisaTypeChange} // Update the selectedVisa state when selection changes
+          className="w-full border p-2 rounded"
+        >
+          {/* Map through the visaTypes array to create options */}
+          {visaTypes.map((visa) => (
+            <option key={visa} value={visa}>
+              {visa}
+            </option>
+          ))}
+        </select>
+      </div>
+         {/* Display the selected Visa type */}
+         <div className="mt-4">
+        <p>You have selected: {selectedVisa.visaType}</p>
+      </div>
 
         {/* Processing Time */}
         <div className="mb-4">
@@ -193,24 +228,41 @@ const MyVisas = () => {
           />
         </div>
 
-        {/* Required Documents */}
-        <div className="mb-4">
-          <label className="block mb-2">Required Documents Description</label>
+           {/* Required Documents */}
+           {/* <div>
+  <label className="block font-semibold mb-1">Previously Selected required Documents</label>
+  <div className="space-y-2">
+{selectedVisa.requiredDocuments}
+  </div>
+</div> */}
+      {/* Required Documents */}
+{/* Required Documents */}
+<div>
+  <label className="block font-semibold mb-1">Add New Required Documents</label>
+  <div className="space-y-2">
+    {["Valid passport", "Visa application form", "Recent passport-sized photograph"].map((doc) => {
+      const isChecked =
+        Array.isArray(selectedVisa?.requiredDocuments) &&
+        selectedVisa.requiredDocuments.some((requiredDoc) => requiredDoc === doc); // Safeguard added
+
+      return (
+        <label key={doc} className="block">
           <input
-            type="text"
-            className="w-full border p-2 rounded"
-            value={selectedVisa?.requiredDocuments || ""}
-            onChange={(e) =>
-              setSelectedVisa({
-                ...selectedVisa,
-                requiredDocuments: {
-                  ...selectedVisa.requiredDocuments,
-                  description: e.target.value,
-                },
-              })
-            }
+            type="checkbox"
+            value={doc}
+            checked={isChecked} // Set checked based on comparison
+            onChange={() => handleCheckboxChange(doc)} // Handle checkbox toggle
           />
-        </div>
+          <span className="ml-2">{doc}</span>
+        </label>
+      );
+    })}
+  </div>
+</div>
+
+
+
+
 
         {/* Age Restriction */}
         <div className="mb-4">
