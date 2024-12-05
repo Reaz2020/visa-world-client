@@ -53,7 +53,12 @@ const AllVisasPage = () => {
          
             <h2 className="text-xl font-semibold mb-2">{visa.countryName}</h2>
             <img src={visa.countryImage} alt={`Flag of ${visa.country}`} className="w-16 h-10 mt-2" />
-           <p className="text-gray-700">Duration: {visa._id}</p>
+           <p className="text-gray-700">visaType: {visa.visaType}</p>
+           <p className="text-gray-700">processingTime: {visa.processingTime}</p>
+           <p className="text-gray-700">description: {visa.description}</p>
+           <p className="text-gray-700">requiredDocuments: {visa.requiredDocuments}</p>
+           <p className="text-gray-700">applicationMethod: {visa.applicationMethod}</p>
+           <p className="text-gray-700">age restriction: {visa.ageRestriction}</p>
             <button
               onClick={() => handleSeeDetails(visa._id)} // Pass the unique ID of the visa
               className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -68,3 +73,12 @@ const AllVisasPage = () => {
 };
 
 export default AllVisasPage;
+// {"_id":{"$oid":"675060141cbdae0d8029ea93"},"countryImage":"new visa 6",
+// "countryName":"kjh",
+//"visaType":"Tourist visa",
+//"processingTime":"kjh",
+// "requiredDocuments":["Valid passport"],
+//"description":"jkbn",
+//"ageRestriction":"8","fee":"9","validity":"9",
+// "applicationMethod":"0",
+//"userEmail":"nehal.sunderland@gmail.com"}

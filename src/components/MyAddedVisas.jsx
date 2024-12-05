@@ -108,7 +108,8 @@ const MyVisas = () => {
               <p>Description: {visa.description}</p>
               <p>Email: {visa.userEmail}</p>
               <p>processing time: {visa.processingTime}</p>
-              <p>age res: {visa.ageRestriction}</p>
+              {/* this line made problem before age restriction  */}
+              <p>age res: {visa.ageRestriction}</p> 
               <p>fee: {visa.fee}</p>
               <div className="flex gap-2">
                 <button
@@ -192,13 +193,13 @@ const MyVisas = () => {
           />
         </div>
 
-        {/* Required Documents - Description */}
+        {/* Required Documents */}
         <div className="mb-4">
           <label className="block mb-2">Required Documents Description</label>
           <input
             type="text"
             className="w-full border p-2 rounded"
-            value={selectedVisa.requiredDocuments?.description || ""}
+            value={selectedVisa?.requiredDocuments || ""}
             onChange={(e) =>
               setSelectedVisa({
                 ...selectedVisa,
@@ -211,21 +212,15 @@ const MyVisas = () => {
           />
         </div>
 
-        {/* Required Documents - Age Restriction */}
+        {/* Age Restriction */}
         <div className="mb-4">
           <label className="block mb-2">Age Restriction</label>
           <input
             type="text"
             className="w-full border p-2 rounded"
-            value={selectedVisa.requiredDocuments?.ageRestriction || ""}
+            value={selectedVisa?.ageRestriction || ""}
             onChange={(e) =>
-              setSelectedVisa({
-                ...selectedVisa,
-                requiredDocuments: {
-                  ...selectedVisa.requiredDocuments,
-                  ageRestriction: e.target.value,
-                },
-              })
+              setSelectedVisa({ ...selectedVisa, ageRestriction: e.target.value })
             }
           />
         </div>
