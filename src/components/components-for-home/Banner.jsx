@@ -51,7 +51,7 @@ modules={[Pagination,Navigation,Autoplay]}
           Together, we create solutions that drive success.
         </p>
      
-       <div className="h-32  text-white flex items-center justify-center text-5xl font-extrabold rounded-lg shadow-lg my-4 animate-spin-slow">
+       <div className="h-32  text-purple-400 flex items-center justify-center text-5xl font-extrabold rounded-lg shadow-lg my-4 animate-spin-slow">
           24-hr service 
         </div>
       
