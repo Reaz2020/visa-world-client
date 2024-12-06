@@ -36,7 +36,7 @@ function handleSignOut(){
 
     return ( 
     
-    <div className="border-2  rounded-lg">
+    <div className="border-2  rounded-lg shadow-lg my-6 ">
         <div className="navbar ">
   <div className="navbar-start">
     <div className="dropdown">

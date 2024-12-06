@@ -18,7 +18,7 @@ const MainLayout = () => {
 
 
 
-    return ( <div className="w-full px-4 bg-sky-200 ">
+    return ( <div className="w-full px-4   ">
             <ToastContainer
   position="top-right"
   autoClose={3000} // Closes after 3 seconds

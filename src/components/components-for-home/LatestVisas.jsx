@@ -67,14 +67,14 @@ const LatestVisas = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100">
+    <div className="p-6 ">
       <h1 className="text-3xl font-bold text-center mb-8">Latest Visas</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
         {visas.map((visa) => (
           <div
             key={visa._id} // Assuming visas have a unique _id field
             data-aos="fade-up"
-            className="bg-white p-4 shadow rounded-lg hover:shadow-lg text-purple-500 "
+            className="bg-white p-4 shadow rounded-lg hover:shadow-lg text-purple-500 border-2"
           >
 
          

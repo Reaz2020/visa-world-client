@@ -37,13 +37,13 @@ const Success = () => {
   ];
 
   return (
-    <div className="min-h-40 bg-purple-400 text-center py-8">
+    <div className="min-h-40 border-4 text-center p-2 py-8">
       <h1 className="text-3xl font-bold text-white mb-6">Visa Success</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
         {visaCards.map((visa) => (
           <div
             key={visa.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border-2"
           >
             <img src={visa.image} alt={`Visa ${visa.id}`} className="w-full h-40 object-cover" />
             <div className="p-4 text-left">
