@@ -2,8 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import { useTypewriter,Cursor } from 'react-simple-typewriter'
 
 const LatestVisas = () => {
+
+const [text]=useTypewriter({
+  words:['Latest Visas' , 'Added by Experts','A new Era . . .'],
+  loop:0
+})
+
+
+
+
   const [visas, setVisas] = useState([]);
   const navigate = useNavigate();
 
@@ -68,7 +78,8 @@ const LatestVisas = () => {
 
   return (
     <div className="p-6 ">
-      <h1 className="text-3xl font-bold text-center mb-8">Latest Visas</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-purple-500"><span>{text}<Cursor/></span></h1>
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
         {visas.map((visa) => (
           <div

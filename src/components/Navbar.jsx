@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useEffect ,useState} from "react";
 import { AuthContext } from "../providers/Network";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Slide } from "react-awesome-reveal";
 
 const Navbar = () => {
   const { user ,  signOutUser,handleGoogleSignIn} = useContext(AuthContext);
@@ -57,19 +58,13 @@ function handleSignOut(){
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-         <li>   <NavLink to='/'> Home</NavLink> </li>
-         {/* {user && (
-                    <>
-                        <li>
-                            <NavLink to="/profile">Profile</NavLink>
-                        </li>
-                       
-                    </>
-                )} */}
-        
-        <li>   <NavLink to='/all-visas'> All-visas</NavLink> </li>
-        
+             
+             
+      
+        <li>   <NavLink to='/'> Home</NavLink> </li>
+        <li>   <NavLink to='/all-visas'> All-visas</NavLink> </li> 
         <li>   <NavLink to='/tutorial'> Add Visa</NavLink> </li>
+    
         <li>   <NavLink to='/my-added-visas'> My Added Visas</NavLink> </li>
         <li>   <NavLink to='/my-visa-applications'> My Visa Applications</NavLink> </li>
         <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
@@ -79,12 +74,17 @@ function handleSignOut(){
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
+
+    <Slide duration={3000}>  
     <li>   <NavLink to='/'> Home</NavLink> </li>
     <li>   <NavLink to='/all-visas'> All-Visas</NavLink> </li>
     <li>   <NavLink to='/add-visa'> Add Visa</NavLink> </li>
+    </Slide>
+    <Slide direction="right" duration={3000}>  
     <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
     <li>   <NavLink to='/my-added-visas'> My Added Visas</NavLink> </li>
     <li>   <NavLink to='/my-visa-applications'> My Visa Applications</NavLink> </li>
+    </Slide>
 
      
     

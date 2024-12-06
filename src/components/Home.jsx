@@ -55,6 +55,7 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Fade } from "react-awesome-reveal";
 
 import Banner from "./components-for-home/Banner";
 import Success from "./components-for-home/Sucess";
@@ -89,7 +90,7 @@ const Home = () => {
       <div className="flex justify-end p-4">
         <button
           onClick={handleThemeToggle}
-          className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition-all"
+          className="px-4 py-2 bg-purple-500 text-white rounded shadow hover:bg-blue-600 transition-all"
         >
         {isDarkMode ? "Light" : "Dark"} Mode
         </button>
@@ -101,9 +102,11 @@ const Home = () => {
       </div>
 
       {/* Latest Visas Section */}
-      <section data-aos="zoom-in" className="mb-6">
+       <Fade>
+      <section className="mb-6">
         <LatestVisas />
       </section>
+      </Fade>
 
       {/* Success Section */}
       <section data-aos="fade-left" className="mb-6">

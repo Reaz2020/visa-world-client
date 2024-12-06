@@ -1,4 +1,6 @@
 import React from 'react';
+import { Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 import { Navigation, Pagination ,Autoplay} from 'swiper/modules';
 import "slick-carousel/slick/slick.css";       
@@ -38,18 +40,31 @@ modules={[Pagination,Navigation,Autoplay]}
     </Swiper>
 
    {/* Title and Subtitle Section */}  
-   <div className="w-full p-4 lg:pl-8 lg:w-[140rem] border-4">
+   <div className="w-full p-4 lg:pl-8 lg:w-[140rem] ">
         <h1 className="text-4xl font-bold text-purple-600 mb-4">
-          Welcome to Our Firm
+     
+     
+          <Fade cascade> Welcome to visa service Portal</Fade>
+   
         </h1>
+        <Slide duration={4000}>
+
         <p className="text-lg text-gray-700 mb-6">
           We specialize in delivering top-notch services to meet your unique needs. 
           Our dedicated team ensures every project is executed with excellence and integrity.
         </p>
-        <p className="text-md text-gray-600">
-          Explore our expertise and let us help you achieve your goals. 
-          Together, we create solutions that drive success.
-        </p>
+
+        </Slide>
+
+
+        <Slide direction="right" duration={4000}> {/* Slide in from the left */}
+  
+           <p className="text-md text-gray-600">
+             Explore our expertise and let us help you achieve your goals. 
+             Together, we create solutions that drive success.
+           </p>
+        </Slide>
+   
      
        <div className="h-32  text-purple-400 flex items-center justify-center text-5xl font-extrabold rounded-lg shadow-lg my-4 animate-spin-slow">
           24-hr service 
