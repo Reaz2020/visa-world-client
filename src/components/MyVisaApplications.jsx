@@ -1,11 +1,34 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/Network";
+import { data } from "autoprefixer";
 
 const MyVisaApplications = () => {
   const { user } = useContext(AuthContext); // Get logged-in user from context
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (search) {
+      fetch(`http://localhost:9000/user-applications?searchParams=${search}`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to fetch applications");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          //console.log(data); // Log the fetched data
+          setApplications(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching applications:", error);
+        });
+    }
+  }, [search]);// Triggers when searching field  changes
+
+
 
   useEffect(() => {
     if (user && user.email) {
@@ -24,7 +47,7 @@ const MyVisaApplications = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to fetch applications");
+        throw new Error("Failed to fetch applications or No applications available ");
       }
 
       const data = await response.json();
@@ -59,12 +82,25 @@ const MyVisaApplications = () => {
     }
   };
 
-  if (loading) return <p>Loading your visa applications...</p>;
+
+//console.log(search);
+  if (loading) return <p>Loading your visa applications...</p>; //unnecessary 
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <h1>My Visa Applications</h1>
+ <div>
+
+     <div>
+     
+      <div className="border-2 text-center">
+        <input
+          type="text"
+          className="border  rounded-md p-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-blue-400 mx-auto border-blue-600 h-16"
+          placeholder="Enter a country name to SEARCH "
+        
+          onChange={(e) => setSearch(e.target.value)} 
+        />
+      </div>
       {applications.length > 0 ? (
         <ul>
           {applications.map((application, index) => (
@@ -90,6 +126,7 @@ const MyVisaApplications = () => {
         <p>No applications found.</p>
       )}
     </div>
+ </div>
   );
 };
 

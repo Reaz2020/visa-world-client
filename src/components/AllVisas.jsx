@@ -22,7 +22,7 @@ const AllVisasPage = () => {
   useEffect(() => {
     const fetchVisas = async () => {
       try {
-        const response = await fetch("http://localhost:8000/visas");
+        const response = await fetch("http://localhost:9000/visas");
 
         if (!response.ok) {
           throw new Error("Failed to fetch visas");

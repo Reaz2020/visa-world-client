@@ -14,12 +14,13 @@ const VisaDetails = ({ loggedInUser }) => {
     lastName: "",
     appliedDate: "",
     fee: "",
+    countryName:""
   });
 
   useEffect(() => {
     const fetchVisaDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/visa/${id}`);
+        const response = await fetch(`http://localhost:9000/visa/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch visa details");
         }
@@ -60,6 +61,7 @@ const VisaDetails = ({ loggedInUser }) => {
       lastName: formData.lastName,
       appliedDate: formData.appliedDate,
       fee: formData.fee,
+      countryName:visaData.countryName,
     };
   
     try {
@@ -115,6 +117,21 @@ const VisaDetails = ({ loggedInUser }) => {
           <div className="bg-white p-6 rounded-lg shadow-md w-96">
             <h2 className="text-lg font-bold mb-4">Apply for Visa</h2>
             <form onSubmit={handleApply}>
+
+            <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  Country
+                </label>
+                <input
+                  type="text"
+                  name="countryName"
+                  value={visaData.countryName}
+                  //onChange={handleInputChange}
+                  readOnly
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100"
+                />
+              </div>
+
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">
                   Email

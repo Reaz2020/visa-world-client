@@ -122,7 +122,7 @@ const handleVisaTypeChange = (event) => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <div className="">
       <h1>My Visas</h1>
       {visas.length > 0 ? (
         <ul>
@@ -228,14 +228,7 @@ const handleVisaTypeChange = (event) => {
           />
         </div>
 
-           {/* Required Documents */}
-           {/* <div>
-  <label className="block font-semibold mb-1">Previously Selected required Documents</label>
-  <div className="space-y-2">
-{selectedVisa.requiredDocuments}
-  </div>
-</div> */}
-      {/* Required Documents */}
+
 {/* Required Documents */}
 <div>
   <label className="block font-semibold mb-1">Add New Required Documents</label>
