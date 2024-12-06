@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import Loading from "./Loading";
 
 const AllVisasPage = () => {
   const [visas, setVisas] = useState([]);
   const [filteredVisas, setFilteredVisas] = useState([]);
   const [selectedVisaType, setSelectedVisaType] = useState("");
+  const [loading,setLoading]=useState(true)
   const navigate = useNavigate();
 
   // Initialize AOS animation
@@ -30,6 +32,7 @@ const AllVisasPage = () => {
         const data = await response.json(); // Parse JSON response
         setVisas(data); // Store fetched visas in state
         setFilteredVisas(data); // Initially, show all visas
+        setLoading(false);
       } catch (error) {
         console.error("Failed to fetch visas", error);
       }
@@ -54,6 +57,7 @@ const AllVisasPage = () => {
   const handleSeeDetails = (id) => {
     navigate(`/visa-details/${id}`);
   };
+  if(loading)  {return <Loading></Loading> }
 
   return (
     <div className="min-h-screen p-6 bg-gray-100">

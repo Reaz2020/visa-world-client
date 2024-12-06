@@ -135,8 +135,7 @@ const authInfo={
   createUser,user,loading,SignInUser ,
   signOutUser,setUser,handleGoogleSignIn,
   swedishData,handleUpdateUser,setUser,updateUser ,
-  // updateUserProfile,
-  //setUserOnRegOrUpdate
+
 
 
 }

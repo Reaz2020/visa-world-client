@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 import { useTypewriter,Cursor } from 'react-simple-typewriter'
+import Loading from "../Loading";
 
 const LatestVisas = () => {
 
@@ -15,6 +16,7 @@ const [text]=useTypewriter({
 
 
   const [visas, setVisas] = useState([]);
+  const [loading,setLoading]=useState(true)
   const navigate = useNavigate();
 
   // Initialize AOS animation
@@ -37,6 +39,7 @@ const [text]=useTypewriter({
         }
         const data = await response.json(); // Parse JSON response
         setVisas(data); // Store fetched visas in state
+        setLoading(false);
       } catch (error) {
         console.error("Failed to fetch visas", error);
       }
@@ -75,7 +78,7 @@ const [text]=useTypewriter({
   const handleSeeDetails = (id) => {
     navigate(`/visa-details/${id}`);
   };
-
+  if(loading)  {return  <div><Loading></Loading></div> }
   return (
     <div className="p-6 ">
       <h1 className="text-3xl font-bold text-center mb-8 text-purple-500"><span>{text}<Cursor/></span></h1>

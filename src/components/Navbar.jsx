@@ -67,7 +67,7 @@ function handleSignOut(){
     
         <li>   <NavLink to='/my-added-visas'> My Added Visas</NavLink> </li>
         <li>   <NavLink to='/my-visa-applications'> My Visa Applications</NavLink> </li>
-        <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
+        {/* <li>   <NavLink to='/about-us'> About-us</NavLink> </li> */}
       </ul>
     </div>
     <a className="btn btn-ghost text-xl"><img className="w-14 h-14 border-8  rounded-full" src="/logo.png" alt="" /></a>
@@ -81,7 +81,7 @@ function handleSignOut(){
     <li>   <NavLink to='/add-visa'> Add Visa</NavLink> </li>
     </Slide>
     <Slide direction="right" duration={3000}>  
-    <li>   <NavLink to='/about-us'> About-us</NavLink> </li>
+    {/* <li>   <NavLink to='/about-us'> About-us</NavLink> </li> */}
     <li>   <NavLink to='/my-added-visas'> My Added Visas</NavLink> </li>
     <li>   <NavLink to='/my-visa-applications'> My Visa Applications</NavLink> </li>
     </Slide>

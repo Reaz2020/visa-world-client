@@ -4,3 +4,4 @@ For chalange part
 3.fade also used in banner 'welcome visa portal'
 4,fade added in the navbar 
 5.Typewriter used in the header of latest visas section 
+- Loading spinner added by a loading component in all pages where data fetches 

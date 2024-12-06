@@ -13,7 +13,7 @@ import VisaDetails from '../components/VisaDetails';  // Import VisaDetails
 import NotFound from '../components/NotFound'; 
 import ForgetPassword from '../components/ForgetPassword';
 import UpdateProfile from './UpdateProfile';
-import AboutUs from '../components/components-for-home/AboutUs';
+// import AboutUs from '../components/components-for-home/AboutUs';
 
 const Routes = createBrowserRouter([
   {
@@ -72,10 +72,10 @@ const Routes = createBrowserRouter([
         element: <UpdateProfile /> ,
       },
 
-      {
-        path: '/about-us',  
-        element: <AboutUs /> ,
-      },
+      // {
+      //   path: '/about-us',  
+      //   element: <AboutUs /> ,
+      // },
     
       {
         path: '*',
