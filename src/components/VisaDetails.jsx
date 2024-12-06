@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useContext} from "react";
 import { AuthContext } from "../providers/Network";
+import { toast } from "react-toastify";
 
 const VisaDetails = ({ loggedInUser }) => {
   const { user } = useContext(AuthContext);
@@ -85,6 +86,7 @@ const VisaDetails = ({ loggedInUser }) => {
     } finally {
       // Ensure modal is closed in both success and error scenarios
       setIsModalOpen(false);
+      toast.success('Thanks your application was successful !')
     }
   };
   

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/Network";
 import { data } from "autoprefixer";
+import Swal from "sweetalert2";
 
 const MyVisaApplications = () => {
   const { user } = useContext(AuthContext); // Get logged-in user from context
@@ -60,27 +61,48 @@ const MyVisaApplications = () => {
   };
 
   const handleRemoveApplication = async (applicationId) => {
-    try {
-      const response = await fetch("http://localhost:9000/delete-application", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ applicationId }), // Send the applicationId in the body
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to remove application");
+    // Use SweetAlert2 for confirmation before deleting
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        const response = await fetch("http://localhost:9000/delete-application", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ applicationId }),
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to remove application");
+        }
+  
+        // Remove the deleted application from the state list
+        setApplications((prevApplications) =>
+          prevApplications.filter((application) => application._id !== applicationId)
+        );
+  
+        // Show a success confirmation
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your application has been deleted.",
+          icon: "success",
+        });
+      } catch (error) {
+        setError(error.message);
       }
-
-      // Remove the deleted application from the state list
-      setApplications((prevApplications) =>
-        prevApplications.filter((application) => application._id !== applicationId)
-      );
-    } catch (error) {
-      setError(error.message); // Set error message if something goes wrong
     }
   };
+  
 
 
 //console.log(search);

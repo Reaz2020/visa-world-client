@@ -1,5 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/Network";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+
 
 const MyVisas = () => {
   const visaTypes = ["Tourist visa", "Student visa", "Official visa", "Business visa", "Transit visa"];
@@ -40,21 +43,40 @@ const MyVisas = () => {
   };
 
   const handleRemoveVisa = async (visaId) => {
-    try {
-      const response = await fetch(`http://localhost:9000/remove-my-added-visa/${visaId}`, {
-        method: "DELETE",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to remove visa");
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you want to delete this visa?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        const response = await fetch(`http://localhost:9000/remove-my-added-visa/${visaId}`, {
+          method: "DELETE",
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to remove visa");
+        }
+  
+        Swal.fire({
+          title: "Deleted!",
+          text: "The visa has been removed.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+  
+        // Remove the visa from state
+        setVisas((prevVisas) => prevVisas.filter((visa) => visa._id !== visaId));
+      } catch (error) {
+        console.error("Error removing visa:", error.message);
       }
-
-      // Remove the visa from state
-      setVisas((prevVisas) => prevVisas.filter((visa) => visa._id !== visaId));
-    } catch (error) {
-      console.error("Error removing visa:", error.message);
     }
   };
+  
 
   const handleEditVisa = (visa) => {
     setSelectedVisa(visa);
@@ -90,6 +112,7 @@ const MyVisas = () => {
       console.error("Error updating visa:", error.message);
     } finally {
       setIsModalOpen(false); // Close modal regardless of success or failure
+      toast.success('Updated successfully ! ')
     }
   };
   // onnly for checkbox 
