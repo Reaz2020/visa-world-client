@@ -18,10 +18,11 @@ export const AuthContext = createContext(null);
 
 
 
+
 const Network = ({children}) => {
   // const data = useLoaderData(); 
 
- 
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
 // const [userDataOnRegOrUpdate, setUserOnRegOrUpdate] = useState(null);// for temp use 
 const [user, setUser]=useState(null);
@@ -134,7 +135,7 @@ const authInfo={
 
   createUser,user,loading,SignInUser ,
   signOutUser,setUser,handleGoogleSignIn,
-  swedishData,handleUpdateUser,setUser,updateUser ,
+  swedishData,handleUpdateUser,setUser,updateUser ,isDarkMode, setIsDarkMode
 
 
 

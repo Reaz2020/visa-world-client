@@ -134,7 +134,7 @@ const Register = () => {
     
     <div className="container mx-auto py-8">
 
-      <h1 className="text-center text-3xl font-bold mb-6">Register</h1>
+      <h1 className="text-center text-3xl font-bold mb-6 text-purple-500">Register</h1>
       
       {/* Register Form */}
       <form onSubmit={handleRegister} className="w-1/2 mx-auto flex flex-col gap-4">
@@ -174,18 +174,19 @@ const Register = () => {
           Register
         </button>
               {/* Social Login Button */}
-     
-      </form>
-
-      <div>
-      <div className="mt-6 text-center">
+            <div className="mt-6 text-center ">
         <button
           onClick={handleGoogleSignInLocally}
-          className="bg-red-500 hover:bg-red-600 text-white py-3 px-8 rounded-full w-full"
+          className="bg-red-500 hover:bg-red-600 text-white py-3 px-8 rounded-full w-full  "
         >
           Register with Google
         </button>
       </div>
+     
+      </form>
+
+      <div>
+   
       </div>
 
       {/* Link to Login */}

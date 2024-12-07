@@ -59,14 +59,15 @@ const Form = () => {
       {/* Navigation buttons */}
       <div className="text-center mb-4">
 
-        <p> Don't have account? register for free </p>
-     
-        <button
-          className="border-2 bg-lime-400 hover:bg-lime-600 w-32 rounded-xl p-2"
+        <p> Don't have account?<button
+          className=" w-32 rounded-xl p-2 text-blue-400"
           onClick={handleNavigateToRegister}
         >
          Register 
-        </button>
+        </button> </p>
+     
+      
+
       </div>
 
       {/* Login Form */}
@@ -74,7 +75,7 @@ const Form = () => {
         className="w-1/2 container mx-auto flex flex-col my-2 gap-2"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-center text-2xl font-bold mb-4">User Login</h2>
+        <h2 className="text-center text-2xl font-bold mb-4 text-purple-500">User Login</h2>
 
         {/* Email Input */}
         <label>

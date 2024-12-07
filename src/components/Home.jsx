@@ -61,9 +61,12 @@ import Banner from "./components-for-home/Banner";
 import Success from "./components-for-home/Sucess";
 import LatestVisas from "./components-for-home/LatestVisas";
 import VisaStatistics from "./components-for-home/VisaStatistics";
+import { useContext } from "react";
+import { AuthContext } from "../providers/Network";
 
 const Home = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+ // const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode, setIsDarkMode} = useContext(AuthContext);
 
   // Initialize AOS animation
   useEffect(() => {

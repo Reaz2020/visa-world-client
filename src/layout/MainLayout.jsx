@@ -7,18 +7,22 @@ import { AuthContext } from "../providers/Network";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ReactTyped } from 'react-typed';
+import {useLocation } from "react-router-dom";
 
 
 
 const MainLayout = () => {
  
+// dark toggle configuration whiöe only at home '/' page 
+    const { user,isDarkMode} = useContext(AuthContext);
+    const location = useLocation();
+    const isAtHome = location.pathname === '/';
 
-    const { user} = useContext(AuthContext);
 
 
 
 
-    return ( <div className="w-full px-4   ">
+    return ( <div className={`w-full px-4 ${isDarkMode&&isAtHome ? "bg-gray-900 text-white" : "bg-white text-gray-900"}  `}>
             <ToastContainer
   position="top-right"
   autoClose={3000} // Closes after 3 seconds
