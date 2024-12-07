@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 
+
+
 const MyVisas = () => {
   const visaTypes = ["Tourist visa", "Student visa", "Official visa", "Business visa", "Transit visa"];
   const { user } = useContext(AuthContext); // Geting logged-in user from context
@@ -146,7 +148,10 @@ const handleVisaTypeChange = (event) => {
     visaType: newVisaType, // Update the visaType in selectedVisa state
   }));
 };
-  if (loading) return <p>Loading your visas...</p>;
+
+//console logs
+//console.log(selectedVisa.countryImage + 'from my addeed visa on change ');
+  if (loading) return <p>Loading . . . . . </p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
