@@ -32,9 +32,9 @@ modules={[Pagination,Navigation,Autoplay]}
    
     >
       <SwiperSlide><img className='w-full lg:h-96' src="/img-8.png" alt="" /></SwiperSlide>
-      <SwiperSlide><img className='w-full lg:h-96' src="/img-1.png" alt="" /></SwiperSlide>
-      <SwiperSlide><img className='w-full lg:h-96' src="/img-3.png" alt="" /></SwiperSlide>
-      <SwiperSlide><img className='w-full lg:h-96' src="/img-9.png" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='w-full lg:h-96' src="/img-12.png" alt="" /></SwiperSlide>
+      <SwiperSlide><img className='w-full lg:h-96' src="/img-13.png" alt="" /></SwiperSlide>
+      {/* <SwiperSlide><img className='w-full lg:h-96' src="/img-9.png" alt="" /></SwiperSlide> */}
     
    
     </Swiper>
