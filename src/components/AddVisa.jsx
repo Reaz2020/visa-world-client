@@ -183,7 +183,7 @@ const AddVisa = () => {
 
         {/* Fee */}
         <div>
-          <label className="block font-semibold mb-1">Fee * number only</label>
+          <label className="block font-semibold mb-1">Fee * $</label>
           <input
             type="number"
             name="fee"

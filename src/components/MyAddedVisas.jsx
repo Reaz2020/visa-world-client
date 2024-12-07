@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/Network";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import Loading from "./Loading";
 
 
 
@@ -151,7 +152,7 @@ const handleVisaTypeChange = (event) => {
 
 //console logs
 //console.log(selectedVisa.countryImage + 'from my addeed visa on change ');
-  if (loading) return <p>Loading . . . . . </p>;
+  if (loading) return <p>  <Loading></Loading></p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
@@ -161,15 +162,20 @@ const handleVisaTypeChange = (event) => {
         <ul>
           {visas.map((visa, index) => (
             <li key={index} className="border-8 shadow-2xl rounded-xl lg:grid lg:grid-cols-4 gap-8 my-6 p-4 ">
-              <p>Visa Title: {visa.visaType}</p>
+              
               <p>Country: {visa.countryName}</p>
-              <p>Description: {visa.description}</p>
-              <p>Email: {visa.userEmail}</p>
+              <img src={visa.countryImage} alt="Country" className="w-32 h-20 object-cover" />
+
+              <p>Visa Type: {visa.visaType}</p>
               <p>processing time: {visa.processingTime}</p>
-              {/* this line made problem before age restriction  */}
-              <p>age res: {visa.ageRestriction}</p> 
-              <p>req doc: {visa.requiredDocuments[0]}</p> 
               <p>fee: {visa.fee}</p>
+              
+              <p>Validity: {visa.validity}</p>
+              
+              {/* this line made problem before age restriction  */}
+              {/* <p>age res: {visa.ageRestriction}</p>  */}
+              <p>Apply method: {visa.applicationMethod}</p> 
+              
               <div className="flex gap-2">
                 <button
                   className="btn-secondary btn text-xl"

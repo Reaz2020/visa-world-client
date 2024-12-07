@@ -95,19 +95,44 @@ const VisaDetails = ({ loggedInUser }) => {
     <div className="p-6 bg-gray-100 rounded-lg shadow-md max-w-md mx-auto mt-8">
       <h1 className="text-xl font-bold mb-4 text-purple-700">Visa Details</h1>
       <p className="mb-2">
+        <span className="font-semibold">Email:</span> {visaData.countryName}
+      </p>
+      <p className="mb-2">
+      <img src={visaData.countryImage} alt="Country" className="font-semibold max-w-40" />
+
+      </p>
+      <p className="mb-2">
+        <span className="font-semibold">processing time:</span> {visaData.processingTime}
+      </p>
+      <p className="mb-2">
         <span className="font-semibold">Email:</span> {visaData.userEmail}
       </p>
+        <p className="mb-2">
+                <span className="font-semibold">Req doc:</span>{" "}
+                {visaData.requiredDocuments.join(", ")}
+        </p>
+
+        <p className="mb-2">
+        <span className="font-semibold">Description:</span> {visaData.description}
+      </p>
+
       <p className="mb-2">
         <span className="font-semibold">Type:</span> {visaType}
       </p>
       <p className="mb-2">
-        <span className="font-semibold">Country:</span> {countryName}
+        <span className="font-semibold">Age restriction *min age :</span> {visaData.ageRestriction}
       </p>
       <p className="mb-2">
         <span className="font-semibold">Fee:</span> ${visaData.fee}
       </p>
+      <p className="mb-2">
+        <span className="font-semibold">Validity:</span> {visaData.validity}
+      </p>
+      <p className="mb-2">
+        <span className="font-semibold">Application method:</span> {visaData.applicationMethod}
+      </p>
       <button
-        className="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-800"
+        className="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-800 mb-8"
         onClick={() => setIsModalOpen(true)} // Open modal on click
       >
         Apply
