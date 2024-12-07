@@ -21,7 +21,9 @@ const MyVisas = () => {
 
   const fetchVisas = async (email) => {
     try {
-      const response = await fetch("http://localhost:9000/user-visas", {
+      //https://visa-app-server.vercel.app
+     // const response = await fetch("http://localhost:9000/user-visas", {
+      const response = await fetch("https://visa-app-server.vercel.app/user-visas", {
         method: "POST", // POST request to send email in the body
         headers: {
           "Content-Type": "application/json", // Specify JSON content
@@ -56,7 +58,7 @@ const MyVisas = () => {
       try {
         //https://visa-app-server.vercel.app    
         // const response = await fetch(`http://localhost:9000/remove-my-added-visa/${visaId}`, {
-        const response = await fetch(`https://visa-app-server.vercel.app /remove-my-added-visa/${visaId}`, {
+        const response = await fetch(`https://visa-app-server.vercel.app/remove-my-added-visa/${visaId}`, {
           method: "DELETE",
         });
   
