@@ -168,7 +168,7 @@ const handleVisaTypeChange = (event) => {
 
               <p>Visa Type: {visa.visaType}</p>
               <p>processing time: {visa.processingTime}</p>
-              <p>fee: {visa.fee}</p>
+              <p>fee:$ {visa.fee}</p>
               
               <p>Validity: {visa.validity}</p>
               

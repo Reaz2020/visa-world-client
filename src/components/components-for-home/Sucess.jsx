@@ -43,7 +43,7 @@ const Success = () => {
         {visaCards.map((visa) => (
           <div
             key={visa.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border-2"
+            className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border-2"
           >
             <img src={visa.image} alt={`Visa ${visa.id}`} className="w-full h-40 object-cover" />
             <div className="p-4 text-left">

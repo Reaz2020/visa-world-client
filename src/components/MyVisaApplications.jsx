@@ -126,7 +126,9 @@ const MyVisaApplications = () => {
       {applications.length > 0 ? (
  <ul>
  {applications.map((application, index) => (
-   <li key={index} className="border-2 lg:grid lg:grid-cols-5 my-6 p-4">
+   <li key={index} className="border-2 lg:grid lg:grid-cols-3 my-6 p-4 gap-6">
+     <p>First name: {application.firstName}</p>
+     <p>Last name: {application.lastName}</p>
      <img
        src={application.countryImage}
        alt={application.countryName}

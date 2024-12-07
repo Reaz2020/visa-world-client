@@ -110,7 +110,7 @@ const Navbar = () => {
                 alt="User"
               />
               {isDropdownVisible && (
-                <div className="absolute top-12 right-0 w-48 bg-white border shadow-lg rounded-md p-2">
+                <div className="absolute top-10 right-0 w-48 bg-white border shadow-lg rounded-md p-2">
                   <p className="text-sm font-semibold">{userDataToShowOnNavbar?.name}</p>
                   <button
                     className="btn bg-violet-500 text-white mt-2 w-full"

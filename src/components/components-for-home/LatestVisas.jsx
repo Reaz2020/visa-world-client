@@ -81,7 +81,7 @@ const [text]=useTypewriter({
   };
   if(loading)  {return  <div><Loading></Loading></div> }
   return (
-    <div className="p-6 ">
+    <div className="p-2 border-2">
       <h1 className="text-3xl font-bold text-center mb-8 text-purple-500"><span>{text}<Cursor/></span></h1>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
@@ -98,9 +98,9 @@ const [text]=useTypewriter({
            <p className="text-gray-700">visaType: {visa.visaType}</p>
            <p className="text-gray-700">processingTime: {visa.processingTime}</p>
        
-           <p className="text-gray-700">requiredDocuments: {visa.requiredDocuments}</p>
+           {/* <p className="text-gray-700">requiredDocuments: {visa.requiredDocuments}</p> */}
            <p className="text-gray-700">applicationMethod: {visa.applicationMethod}</p>
-           <p className="text-gray-700">fee: {visa.fee}</p>
+           <p className="text-gray-700">fee:$ {visa.fee}</p>
        
             <p className="text-gray-700">validity: {visa.validity}</p>
     

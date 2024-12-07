@@ -33,7 +33,7 @@ const VisaDetails = ({ loggedInUser }) => {
           email: data.userEmail || "",
           firstName: "",
           lastName: "",
-          appliedDate: new Date().toISOString().split("T")[0],
+          appliedDate: new Date().toLocaleDateString("en-CA"), 
           fee: data.fee || "",
         });
       } catch (error) {
