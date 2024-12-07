@@ -161,7 +161,7 @@ const handleVisaTypeChange = (event) => {
       {visas.length > 0 ? (
         <ul>
           {visas.map((visa, index) => (
-            <li key={index} className="border-8 shadow-2xl rounded-xl lg:grid lg:grid-cols-4 gap-8 my-6 p-4 ">
+            <li key={index} className="border-8 shadow-2xl rounded-xl lg:grid lg:grid-cols-4 gap-8 my-6 p-4  text-semibold">
               
               <p>Country: {visa.countryName}</p>
               <img src={visa.countryImage} alt="Country" className="w-32 h-20 object-cover" />
@@ -212,6 +212,19 @@ const handleVisaTypeChange = (event) => {
             value={selectedVisa.countryName || ""}
             onChange={(e) =>
               setSelectedVisa({ ...selectedVisa, countryName: e.target.value })
+            }
+          />
+        </div>
+
+             {/* Description*/}
+             <div className="mb-4">
+          <label className="block mb-2">Description</label>
+          <input
+            type="text"
+            className="w-full border p-2 rounded"
+            value={selectedVisa.description || ""}
+            onChange={(e) =>
+              setSelectedVisa({ ...selectedVisa, description: e.target.value })
             }
           />
         </div>
