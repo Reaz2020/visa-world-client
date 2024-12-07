@@ -170,7 +170,7 @@ const AddVisa = () => {
 
         {/* Age Restriction */}
         <div>
-          <label className="block font-semibold mb-1">Age Restriction</label>
+          <label className="block font-semibold mb-1">Age Restriction * must be a number</label>
           <input
             type="number"
             name="ageRestriction"
@@ -183,7 +183,7 @@ const AddVisa = () => {
 
         {/* Fee */}
         <div>
-          <label className="block font-semibold mb-1">Fee</label>
+          <label className="block font-semibold mb-1">Fee * number only</label>
           <input
             type="number"
             name="fee"

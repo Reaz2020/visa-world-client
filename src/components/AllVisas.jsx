@@ -97,11 +97,11 @@ const AllVisasPage = () => {
               className="w-16 h-10 mt-2"
             />
             <p className="text-gray-700">Visa Type: {visa.visaType}</p>
-            <p className="text-gray-700">Processing Time: {visa.processingTime}</p>
+            {/* <p className="text-gray-700">Processing Time: {visa.processingTime}</p> */}
             <p className="text-gray-700">Description: {visa.description}</p>
-            <p className="text-gray-700">Required Documents: {visa.requiredDocuments}</p>
+            {/* <p className="text-gray-700">Required Documents: {visa.requiredDocuments}</p> */}
             <p className="text-gray-700">Application Method: {visa.applicationMethod}</p>
-            <p className="text-gray-700">Age Restriction: {visa.ageRestriction}</p>
+            {/* <p className="text-gray-700">Age Restriction: {visa.ageRestriction}</p> */}
             <button
               onClick={() => handleSeeDetails(visa._id)} // Pass the unique ID of the visa
               className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
