@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css";
 import { useTypewriter,Cursor } from 'react-simple-typewriter'
 import Loading from "../Loading";
 
@@ -19,7 +19,7 @@ const [text]=useTypewriter({
   const [loading,setLoading]=useState(true)
   const navigate = useNavigate();
 
-  // Initialize AOS animation
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -86,7 +86,7 @@ const [text]=useTypewriter({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
         {visas.map((visa) => (
           <div
-            key={visa._id} // Assuming visas have a unique _id field
+            key={visa._id} 
             data-aos="fade-up"
             className="bg-white p-4 shadow rounded-lg hover:shadow-lg text-purple-500 border-2"
           >

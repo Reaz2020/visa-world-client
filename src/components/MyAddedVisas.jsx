@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const MyVisas = () => {
   const visaTypes = ["Tourist visa", "Student visa", "Official visa", "Business visa", "Transit visa"];
-  const { user } = useContext(AuthContext); // Get logged-in user from context
+  const { user } = useContext(AuthContext); // Geting logged-in user from context
   const [visas, setVisas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -111,7 +111,7 @@ const MyVisas = () => {
     } catch (error) {
       console.error("Error updating visa:", error.message);
     } finally {
-      setIsModalOpen(false); // Close modal regardless of success or failure
+      setIsModalOpen(false); // Closing modal regardless of success or failure
       toast.success('Updated successfully ! ')
     }
   };
@@ -120,7 +120,7 @@ const MyVisas = () => {
     setSelectedVisa((prevVisa) => {
       const isChecked = prevVisa.requiredDocuments.includes(doc);
       
-      // If document is checked, remove it from the array; otherwise, add it.
+      // If document is checked, removing it from the array; otherwise, add it.
       const updatedDocuments = isChecked
         ? prevVisa.requiredDocuments.filter((item) => item !== doc) // Remove if checked
         : [...prevVisa.requiredDocuments, doc]; // Add if not checked

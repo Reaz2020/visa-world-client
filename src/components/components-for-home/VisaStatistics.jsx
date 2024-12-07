@@ -12,7 +12,7 @@ import {
 } from "recharts";
 
 const VisaStatistics = () => {
-  // Updated dummy data for countries and visas received by year
+  // dummy data for countries and visas received by year
   const data = [
     { country: "USA", visas: 12000, year: 2023 },
     { country: "Canada", visas: 8000, year: 2023 },

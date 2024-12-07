@@ -35,7 +35,7 @@ const MyVisaApplications = () => {
     if (user && user.email) {
       fetchVisaApplications(user.email);
     }
-  }, [user]); // Trigger when user changes
+  }, [user]); // Triggering when user changes
 
   const fetchVisaApplications = async (email) => {
     try {
