@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTypewriter,Cursor } from 'react-simple-typewriter'
 import Loading from "../Loading";
+import { NavLink } from "react-router-dom";
 
 const LatestVisas = () => {
 
@@ -112,7 +113,12 @@ const [text]=useTypewriter({
             </button>
           </div>
         ))}
+       
       </div>
+<div className="text-center ">
+<button className="btn btn-secondary border-2 ml-60 px-8 bg-blue-600">
+<NavLink to="/all-visas"> All-Visas</NavLink></button>
+</div>
     </div>
   );
 };
