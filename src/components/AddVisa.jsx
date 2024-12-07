@@ -80,8 +80,8 @@ const AddVisa = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Add Visa</h1>
+    <div className="p-6 max-w-4xl mx-auto border-2 shadow-lg">
+      <h1 className="text-2xl font-bold mb-4 text-center text-purple-500">Add Visa</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Country Image */}
         <div>

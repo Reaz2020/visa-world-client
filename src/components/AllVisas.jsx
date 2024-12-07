@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css"; 
 import Loading from "./Loading";
 
 const AllVisasPage = () => {
@@ -11,7 +11,7 @@ const AllVisasPage = () => {
   const [loading,setLoading]=useState(true)
   const navigate = useNavigate();
 
-  // Initialize AOS animation
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -20,7 +20,7 @@ const AllVisasPage = () => {
     });
   }, []);
 
-  // Fetch visas from the backend using fetch API
+  // Fetch visas 
   useEffect(() => {
     const fetchVisas = async () => {
       try {
@@ -29,9 +29,9 @@ const AllVisasPage = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch visas");
         }
-        const data = await response.json(); // Parse JSON response
+        const data = await response.json(); // Parsing JSON response
         setVisas(data); // Store fetched visas in state
-        setFilteredVisas(data); // Initially, show all visas
+        setFilteredVisas(data); // Initially, showing all visas
         setLoading(false);
       } catch (error) {
         console.error("Failed to fetch visas", error);
@@ -39,7 +39,7 @@ const AllVisasPage = () => {
     };
 
     fetchVisas();
-  }, []); // Empty dependency array ensures this runs once when component mounts
+  }, []); 
 
   // Handle visa type filter change
   const handleVisaTypeChange = (e) => {
@@ -47,7 +47,7 @@ const AllVisasPage = () => {
     setSelectedVisaType(selectedType);
     
     if (selectedType === "") {
-      setFilteredVisas(visas); // Show all visas if no filter is selected
+      setFilteredVisas(visas); // Showing all visas if no filter is selected
     } else {
       const filtered = visas.filter((visa) => visa.visaType === selectedType);
       setFilteredVisas(filtered);
@@ -61,11 +61,11 @@ const AllVisasPage = () => {
 
   return (
     <div className="min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold text-center mb-8">All Visas</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-purple-500">All Visas</h1>
       
       {/* Dropdown for visa type filter */}
       <div className="mb-6">
-        <label htmlFor="visaType" className="block text-lg font-semibold mb-2">
+        <label htmlFor="visaType" className="block text-lg font-semibold mb-2 text-purple-500">
           Filter by Visa Type
         </label>
         <select
@@ -78,7 +78,7 @@ const AllVisasPage = () => {
           <option value="Tourist visa">Tourist visa</option>
           <option value="Student visa">Student visa</option>
           <option value="Official visa">Official visa</option>
-          {/* Add more visa types as needed */}
+     
         </select>
       </div>
 
@@ -86,7 +86,7 @@ const AllVisasPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredVisas.map((visa) => (
           <div
-            key={visa._id} // Assuming visas have a unique _id field
+            key={visa._id} 
             data-aos="fade-up"
             className="bg-white p-4 shadow rounded-lg hover:shadow-lg"
           >
