@@ -39,7 +39,7 @@ const MyVisaApplications = () => {
 
   const fetchVisaApplications = async (email) => {
     try {
-      const response = await fetch("http://localhost:9000/user-applications", {
+      const response = await fetch("https://visa-app-server.vercel.app/user-applications", {
         method: "POST", // POST request to send email in the body
         headers: {
           "Content-Type": "application/json", // Specify JSON content
@@ -74,7 +74,7 @@ const MyVisaApplications = () => {
   
     if (result.isConfirmed) {
       try {
-        const response = await fetch("http://localhost:9000/delete-application", {
+        const response = await fetch("https://visa-app-server.vercel.app/delete-application", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

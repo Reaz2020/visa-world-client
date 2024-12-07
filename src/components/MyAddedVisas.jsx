@@ -54,7 +54,9 @@ const MyVisas = () => {
   
     if (result.isConfirmed) {
       try {
-        const response = await fetch(`http://localhost:9000/remove-my-added-visa/${visaId}`, {
+        //https://visa-app-server.vercel.app    
+        // const response = await fetch(`http://localhost:9000/remove-my-added-visa/${visaId}`, {
+        const response = await fetch(`https://visa-app-server.vercel.app /remove-my-added-visa/${visaId}`, {
           method: "DELETE",
         });
   
@@ -86,7 +88,8 @@ const MyVisas = () => {
   const handleUpdateVisa = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:9000/update-visa/${selectedVisa._id}`, {
+      // const response = await fetch(`http://localhost:9000/update-visa/${selectedVisa._id}`, {
+      const response = await fetch(`https://visa-app-server.vercel.app/update-visa/${selectedVisa._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

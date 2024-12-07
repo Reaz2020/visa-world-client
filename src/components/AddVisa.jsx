@@ -48,7 +48,7 @@ const AddVisa = () => {
       const visaData = { ...formData, userEmail: user.email };
     try {
       // Send data to the database
-      const response = await fetch("http://localhost:9000/add-visa", {
+      const response = await fetch("https://visa-app-server.vercel.app/add-visa", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
