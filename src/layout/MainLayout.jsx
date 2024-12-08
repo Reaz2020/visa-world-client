@@ -14,7 +14,7 @@ import {useLocation } from "react-router-dom";
 const MainLayout = () => {
  
 // dark toggle configuration whiöe only at home '/' page 
-    const { user,isDarkMode} = useContext(AuthContext);
+    const { user,isDarkMode,form2Data} = useContext(AuthContext);
     const location = useLocation();
     const isAtHome = location.pathname === '/';
 
@@ -40,7 +40,7 @@ const MainLayout = () => {
 
           <div className="text-center text-4xl my-6 font-extrabold">
         {user ? (
-          <div >Welcome !! {user?.displayName || "User"}</div>
+          <div >Welcome !! {user?.displayName||form2Data.name || "User"}</div>
         ) : 
         
         
