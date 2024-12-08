@@ -132,7 +132,7 @@ const MyVisaApplications = () => {
      <img
        src={application.countryImage}
        alt={application.countryName}
-       className="w-16 h-16 object-cover"
+       className="w-28 h-16 object-cover"
      />
      <p>Visa Type: {application.visaType}</p>
      <p>Country: {application.countryName}</p>

@@ -21,7 +21,7 @@ const VisaDetails = ({ loggedInUser }) => {
   useEffect(() => {
     const fetchVisaDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:9000/visa/${id}`);
+        const response = await fetch(`https://visa-app-server.vercel.app/visa/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch visa details");
         }
@@ -72,7 +72,7 @@ const VisaDetails = ({ loggedInUser }) => {
     
   
     try {
-      const response = await fetch("http://localhost:9000/applying", {
+      const response = await fetch("https://visa-app-server.vercel.app/applying", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
