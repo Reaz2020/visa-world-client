@@ -29,7 +29,8 @@ Data Fetching: Real-time data loading with appropriate loading indicators.
 Add new visas and visa applications.
 View detailed visa information and its requirements.
 Edit and delete only user-added visas.
-View all user applications and track visa requests.
+View all user applications.
+User can track done applications
 
 
 - Animation & Effects:

@@ -111,7 +111,7 @@ const Navbar = () => {
               />
               {isDropdownVisible && (
                 <div className="absolute top-10 right-0 w-48 bg-white border shadow-lg rounded-md p-2">
-                  <p className="text-sm font-semibold">{userDataToShowOnNavbar?.name||form2Data?.name}</p>
+                  <p className="text-sm font-semibold text-purple-500">{userDataToShowOnNavbar?.name||form2Data?.name}</p>
                   <button
                     className="btn bg-violet-500 text-white mt-2 w-full"
                     onClick={handleSignOut}

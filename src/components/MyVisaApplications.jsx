@@ -10,6 +10,25 @@ const MyVisaApplications = () => {
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
 
+  // useEffect(() => {
+  //   if (search) {
+  //     fetch(`https://visa-app-server.vercel.app/user-applications?searchParams=${search}`)
+  //       .then((res) => {
+  //         if (!res.ok) {
+  //           throw new Error("Failed to fetch applications");
+  //         }
+  //         return res.json();
+  //       })
+  //       .then((data) => {
+  //         //console.log(data); // Log the fetched data
+  //         setApplications(data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching applications:", error);
+  //       });
+  //   }
+  // }, [search]);// Triggers when searching field  changes
+
   useEffect(() => {
     if (search) {
       fetch(`https://visa-app-server.vercel.app/user-applications?searchParams=${search}`)
@@ -20,16 +39,17 @@ const MyVisaApplications = () => {
           return res.json();
         })
         .then((data) => {
-          //console.log(data); // Log the fetched data
           setApplications(data);
         })
         .catch((error) => {
           console.error("Error fetching applications:", error);
+          setError(error.message);
         });
+    } else if (user && user.email) {
+      fetchVisaApplications(user.email); // Fetch all when search is empty
     }
-  }, [search]);// Triggers when searching field  changes
-
-
+  }, [search, user]);
+  
 
   useEffect(() => {
     if (user && user.email) {
