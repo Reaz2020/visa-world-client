@@ -200,7 +200,7 @@ const handleVisaTypeChange = (event) => {
       {/* Modal for Editing Visa */}
       {isModalOpen && selectedVisa && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center overflow-scroll ">
-    <div className="bg-white p-6 rounded-lg lg:w-1/2  sm:h-2/4 lg:h-auto h-3/4 overflow-scroll">
+    <div className="bg-white p-6 rounded-lg lg:w-1/2  sm:h-2/4 lg:h-screen h-full overflow-scroll">
       <h2 className="text-xl mb-4">Edit Visa</h2>
       <form onSubmit={handleUpdateVisa}>
         {/* Country Name */}
