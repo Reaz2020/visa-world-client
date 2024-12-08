@@ -12,7 +12,7 @@ const MyVisaApplications = () => {
 
   useEffect(() => {
     if (search) {
-      fetch(`http://localhost:9000/user-applications?searchParams=${search}`)
+      fetch(`https://visa-app-server.vercel.app/user-applications?searchParams=${search}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Failed to fetch applications");
