@@ -77,11 +77,13 @@ const Routes = createBrowserRouter([
       //   element: <AboutUs /> ,
       // },
     
-      {
-        path: '*',
-        element: <NotFound />, // NotFound component on invalid route
-      },
+  
     ],
+
+  
+  },  {
+    path: '*',
+    element: <NotFound />, // NotFound component on invalid route
   },
 ]);
 
