@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/Network";
 import { Slide } from "react-awesome-reveal";
 
 const Navbar = () => {
-  const { user, signOutUser } = useContext(AuthContext);
+  const { user, signOutUser,form2Data} = useContext(AuthContext);
   const [userDataToShowOnNavbar, setUserDataToShowOnNavbar] = useState(null);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
@@ -106,12 +106,12 @@ const Navbar = () => {
             >
               <img
                 className="h-10 w-10 border-2 rounded-full bg-slate-400 cursor-pointer"
-                src={userDataToShowOnNavbar?.photo}
+                src={userDataToShowOnNavbar?.photo||form2Data?.photoUrl}
                 alt="User"
               />
               {isDropdownVisible && (
                 <div className="absolute top-10 right-0 w-48 bg-white border shadow-lg rounded-md p-2">
-                  <p className="text-sm font-semibold">{userDataToShowOnNavbar?.name}</p>
+                  <p className="text-sm font-semibold">{userDataToShowOnNavbar?.name||form2Data?.name}</p>
                   <button
                     className="btn bg-violet-500 text-white mt-2 w-full"
                     onClick={handleSignOut}

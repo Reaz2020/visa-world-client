@@ -51,24 +51,6 @@ const [text]=useTypewriter({
   //--------------------------------------------------------------
 
 
-  // useEffect(() => {
-  //   const fetchLatestVisas = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:8000/latest-visas");
-  
-  //       if (!response.ok) {
-  //         throw new Error("Failed to fetch latest visas");
-  //       }
-  
-  //       const data = await response.json(); // Parse JSON response
-  //       setVisas(data); // Store fetched visas in state
-  //     } catch (error) {
-  //       console.error("Failed to fetch latest visas:", error);
-  //     }
-  //   };
-  
-  //   fetchLatestVisas();
-  // }, []); // Empty dependency array ensures this runs once when component mounts
   
 
 

@@ -9,57 +9,17 @@ const Register = () => {
   const location = useLocation();
 
 
-  const { createUser, handleGoogleSignIn,handleUpdateUser,setUser,updateUser,user} = useContext(AuthContext);
+  const { createUser, handleGoogleSignIn,handleUpdateUser,setUser,updateUser,user,setForm2Data} = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
 
 
-  // const handleNavigate = () => {
-  //   navigate("/home");
-  // };
-
-  // Determine redirection route after successful login
   const handleNavigate = () => {
   
     navigate(location?.state || "/");
   };
-  // const handleRegister = (e) => {
-  //   console.log('handle register')
-  //   e.preventDefault();
-  //   const name = e.target.name.value;
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-  //   const photoUrl= e.target.photoUrl.value;
 
 
-  //   const passwordValidation = validatePassword(password);
-  //   if (passwordValidation !== true) {
-  //     setPasswordError(passwordValidation);
-  //     toast.error(passwordValidation);
-  //     return;
-  //   } else {
-  //     setPasswordError("");
-  //   }
-
-  //   // Create user
-  //   createUser(email, password)
-  //     .then((result) => {
-  //       const user = result.user;
-  //         if (name || photoUrl) {
-  //           updateProfile(user, { displayName: name, photoURL: photoUrl})
-  //          // handleUpdateUser(name,photoUrl)
-  //         }
-     
-  //         setUser(user)
-     
-  //      // toast.success("Registration Successful!", { position: toast.POSITION.TOP_CENTER });
-  //       handleNavigate();
-  //     })
-  //     .catch((error) => {
-  
-  //      toast.error(error.message);
-  //     });
-  // };
   const handleRegister = async (e) => {
     console.log('handle register');
     e.preventDefault();
@@ -67,6 +27,7 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const photoUrl = e.target.photoUrl.value;
+    
   
     const passwordValidation = validatePassword(password);
     if (passwordValidation !== true) {
@@ -130,6 +91,18 @@ const Register = () => {
       });
   };
 
+//-----------------------------------------
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+
+  setForm2Data((prev) => ({
+    ...prev,    // Preserve other form fields
+    [name]: value,   // Update the changed field
+  }));
+};
+
+  
+
   return (
     
     <div className="container mx-auto py-8">
@@ -140,7 +113,10 @@ const Register = () => {
       <form onSubmit={handleRegister} className="w-1/2 mx-auto flex flex-col gap-4">
         <label className="text-sm font-medium">
           Name
-          <input name="name" type="text" className="border-2 p-2 mt-1 w-full" placeholder="Enter your name" required />
+          <input name="name" type="text" 
+           onChange={handleInputChange}
+          className="border-2 p-2 mt-1 w-full" 
+          placeholder="Enter your name" required />
         </label>
         
         <label className="text-sm font-medium">
@@ -161,14 +137,17 @@ const Register = () => {
         </label>
         
         <label className="text-sm font-medium">
-          Photo URL
-          <input
-            name="photoUrl"
-            type="text"
-            className="border-2 p-2 mt-1 w-full"
-            placeholder="Enter your photo URL"
-          />
-        </label>
+  Photo URL
+  <input
+    name="photoUrl"
+    type="text"
+    className="border-2 p-2 mt-1 w-full"
+    placeholder="Enter your photo URL"
+    //value={photoUrl}
+    onChange={handleInputChange}
+  />
+</label>
+
 
         <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-3 mt-4 rounded-full">
           Register

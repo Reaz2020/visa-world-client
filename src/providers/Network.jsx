@@ -28,6 +28,9 @@ const Network = ({children}) => {
 const [user, setUser]=useState(null);
 const [loading, setLoading]=useState(true);
 const [swedishData, setSwedishData] = useState(null); // State to store Swedish data
+const [form2Data, setForm2Data] = useState({
+  name: "",   // Initialize name field
+});
 
 
 const provider = new GoogleAuthProvider();
@@ -136,6 +139,7 @@ const authInfo={
   createUser,user,loading,SignInUser ,
   signOutUser,setUser,handleGoogleSignIn,
   swedishData,handleUpdateUser,setUser,updateUser ,isDarkMode, setIsDarkMode
+  ,form2Data, setForm2Data
 
 
 
