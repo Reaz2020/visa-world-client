@@ -63,6 +63,7 @@ import LatestVisas from "./components-for-home/LatestVisas";
 import VisaStatistics from "./components-for-home/VisaStatistics";
 import { useContext } from "react";
 import { AuthContext } from "../providers/Network";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
  // const [isDarkMode, setIsDarkMode] = useState(false);
@@ -119,6 +120,9 @@ const Home = () => {
       {/* Visa Statistics Section */}
       <section data-aos="fade-up" className="mb-6">
         <VisaStatistics />
+      </section>
+      <section data-aos="fade-up" className="mb-6">
+      <Testimonials />
       </section>
     </div>
   );

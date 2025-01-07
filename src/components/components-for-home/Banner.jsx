@@ -40,7 +40,7 @@ modules={[Pagination,Navigation,Autoplay]}
     </Swiper>
 
    {/* Title and Subtitle Section */}  
-   <div className="w-full p-4 lg:pl-8 lg:w-[140rem] ">
+   <div className="w-full p-4 lg:pl-8 lg:w-[140rem]  ">
         <h1 className="text-4xl font-bold text-purple-600 mb-4">
      
      

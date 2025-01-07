@@ -22,7 +22,9 @@ const MainLayout = () => {
 
 
 
-    return ( <div className={`w-full px-4 ${isDarkMode&&isAtHome ? "bg-gray-900 text-white" : "bg-white text-gray-900"}  `}>
+    return ( 
+    
+    <div className={`w-full px-4 ${isDarkMode&&isAtHome ? "bg-gray-900 text-white" : "bg-white text-gray-900"}  `}>
             <ToastContainer
   position="top-right"
   autoClose={3000} // Closes after 3 seconds

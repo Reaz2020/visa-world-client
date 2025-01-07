@@ -16,6 +16,7 @@ import ForgetPassword from '../components/ForgetPassword';
 import UpdateProfile from './UpdateProfile';
 import AboutUs from '../components/AboutUs'; // Import AboutUs component
 import Support from '../components/Support';
+import Jobs from '../components/Jobs';
 // import AboutUs from '../components/components-for-home/AboutUs';
 
 const Routes = createBrowserRouter([
@@ -80,6 +81,10 @@ const Routes = createBrowserRouter([
       {
         path: 'support',
         element: <Support />, // Support page
+      },
+      {
+        path: 'jobs',
+        element: <Jobs />, // Support page
       },
 
     
