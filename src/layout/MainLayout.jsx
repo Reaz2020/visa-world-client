@@ -61,7 +61,7 @@ const MainLayout = () => {
 
 
       </div>
-    <div className="">    <Navbar></Navbar></div>
+    <div className="w-full sticky top-5 z-50  text-5xl font-extrabold font-serif ">    <Navbar></Navbar></div>
   <div className=" ">
   <Outlet></Outlet>
   </div>

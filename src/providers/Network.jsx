@@ -11,7 +11,7 @@ export const AuthContext = createContext(null);
  import { useState } from 'react';
  import { useEffect } from 'react';
  import { GoogleAuthProvider } from "firebase/auth";
- import { GithubAuthProvider } from "firebase/auth";
+
  import { updateProfile } from "firebase/auth"; // Firebase import for profile updates
 
 
@@ -151,6 +151,7 @@ const authInfo={
         {children}
 
     </AuthContext.Provider>  
+    
     
 );
 }

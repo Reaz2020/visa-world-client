@@ -19,7 +19,7 @@ const Banner = () => {
   
 
 //-------------------------------------
-<div className='md:flex'>
+<div className='md:flex '>
 
 
 <Swiper
@@ -57,13 +57,13 @@ modules={[Pagination,Navigation,Autoplay]}
         </Slide>
 
 
-        <Slide direction="right" duration={4000}> {/* Slide in from the left */}
+       
   
            <p className="text-md text-gray-600">
              Explore our expertise and let us help you achieve your goals. 
              Together, we create solutions that drive success.
            </p>
-        </Slide>
+    
    
      
        <div className="h-32  text-purple-400 flex items-center justify-center text-5xl font-extrabold rounded-lg shadow-lg my-4 animate-spin-slow">

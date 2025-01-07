@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+
 import MainLayout from '../layout/MainLayout';
 import Form from '../components/Form';
 import Register from '../components/Register';
@@ -13,6 +14,8 @@ import VisaDetails from '../components/VisaDetails';  // Import VisaDetails
 import NotFound from '../components/NotFound'; 
 import ForgetPassword from '../components/ForgetPassword';
 import UpdateProfile from './UpdateProfile';
+import AboutUs from '../components/AboutUs'; // Import AboutUs component
+import Support from '../components/Support';
 // import AboutUs from '../components/components-for-home/AboutUs';
 
 const Routes = createBrowserRouter([
@@ -70,12 +73,16 @@ const Routes = createBrowserRouter([
       {
         path: '/update-profile',  
         element: <UpdateProfile /> ,
+      },   {
+        path: 'about-us',
+        element: <AboutUs />, // About Us page
+      },
+      {
+        path: 'support',
+        element: <Support />, // Support page
       },
 
-      // {
-      //   path: '/about-us',  
-      //   element: <AboutUs /> ,
-      // },
+    
     
   
     ],
@@ -87,6 +94,6 @@ const Routes = createBrowserRouter([
   },
 ]);
 
-export default Routes;
+export default Routes; 
 
 
