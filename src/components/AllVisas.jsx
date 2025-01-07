@@ -8,9 +8,8 @@ const AllVisasPage = () => {
   const [visas, setVisas] = useState([]);
   const [filteredVisas, setFilteredVisas] = useState([]);
   const [selectedVisaType, setSelectedVisaType] = useState("");
-  const [loading,setLoading]=useState(true)
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     AOS.init({
@@ -54,10 +53,19 @@ const AllVisasPage = () => {
     }
   };
 
+  // Handle sorting visas alphabetically
+  const handleSortAlphabetically = () => {
+    const sortedVisas = [...filteredVisas].sort((a, b) => {
+      return a.countryName.localeCompare(b.countryName); // Sort by countryName alphabetically
+    });
+    setFilteredVisas(sortedVisas);
+  };
+
   const handleSeeDetails = (id) => {
     navigate(`/visa-details/${id}`);
   };
-  if(loading)  {return <Loading></Loading> }
+
+  if (loading) { return <Loading />; }
 
   return (
     <div className="min-h-screen p-6 bg-gray-100">
@@ -78,8 +86,17 @@ const AllVisasPage = () => {
           <option value="Tourist visa">Tourist visa</option>
           <option value="Student visa">Student visa</option>
           <option value="Official visa">Official visa</option>
-     
         </select>
+      </div>
+
+      {/* Button to sort visas alphabetically */}
+      <div className="mb-6">
+        <button
+          onClick={handleSortAlphabetically}
+          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+        >
+          Sort Alphabetically by Country
+        </button>
       </div>
 
       {/* Display filtered visas */}
@@ -93,7 +110,7 @@ const AllVisasPage = () => {
             <h2 className="text-xl font-semibold mb-2">{visa.countryName}</h2>
             <img
               src={visa.countryImage}
-              alt={`Flag of ${visa.country}`}
+              alt={`Flag of ${visa.countryName}`}
               className="w-16 h-10 mt-2"
             />
             <p className="text-gray-700">Visa Type: {visa.visaType}</p>
