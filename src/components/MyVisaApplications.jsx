@@ -134,11 +134,11 @@ const MyVisaApplications = () => {
 
      <div>
      
-      <div className="border-2 text-center">
+      <div className=" text-center">
         <input
           type="text"
           className="border  rounded-md p-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-blue-400 mx-auto border-blue-600 h-16"
-          placeholder="Enter a country name to SEARCH "
+          placeholder="Search country "
         
           onChange={(e) => setSearch(e.target.value)} 
         />

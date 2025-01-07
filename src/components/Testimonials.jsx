@@ -1,8 +1,12 @@
-import React from 'react';
+
+import { AuthContext } from '../providers/Network'; 
+import React, { useContext } from 'react';
+
 
 const Testimonials = () => {
+  const { user } = useContext(AuthContext);
   return (
-    <section data-aos="fade-up" className="mb-6 bg-gray-100 p-6 rounded-lg">
+    <section data-aos="fade-up" className="mb-6 p-6 rounded-lg text-purple-500">
       <h2 className="text-3xl font-semibold text-center mb-4">What Our Clients Say</h2>
       <div className="flex flex-wrap justify-center gap-8">
         <div className="w-80 p-4 bg-white rounded-lg shadow-lg">
