@@ -45,3 +45,6 @@ Loading Spinner:
 Custom loading components implemented across all pages where data fetching occurs. This includes adding visas, viewing applications, and removing or editing user-added visas.
 
 
+- To run and test it , someone needs to clone the repo and install dependencies like  express and node 
+
+
