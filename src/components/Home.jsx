@@ -118,9 +118,9 @@ const Home = () => {
       </section>
 
       {/* Visa Statistics Section */}
-      <section data-aos="fade-up" className="mb-6">
+      {/* <section data-aos="fade-up" className="mb-6">
         <VisaStatistics />
-      </section>
+      </section> */}
       <section data-aos="fade-up" className="mb-6">
       <Testimonials />
       </section>

@@ -16,7 +16,7 @@ const Navbar = () => {
         email: user.email,
       });
     }
-  }, [user]);
+  }, [user]); 
 
   function handleSignOut() {
     signOutUser()
@@ -58,7 +58,7 @@ const Navbar = () => {
               {user && (
 
 <li>
-  <NavLink to="/add-visa">Add Visa</NavLink>
+  <NavLink to="/add-visa">Add Visa/ add interest </NavLink>
 </li>
 
 )}
@@ -66,7 +66,7 @@ const Navbar = () => {
 {user && (
 
 <li>
-<NavLink to="/my-added-visas">My Added Visas</NavLink>
+<NavLink to="/my-added-visas">My Added Visas / interest</NavLink>
 </li>   )}
 
 {user && (
@@ -110,7 +110,7 @@ const Navbar = () => {
             {user && (
 
              <li>
-               <NavLink to="/add-visa">Add Visa</NavLink>
+               <NavLink to="/add-visa">Add Visa </NavLink>
              </li>
             
             )}

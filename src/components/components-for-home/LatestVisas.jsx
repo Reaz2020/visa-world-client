@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 const LatestVisas = () => {
 
 const [text]=useTypewriter({
-  words:['Latest Visas' , 'Added by Experts','A new Era . . .'],
+  words:['WORKING ' , 'COUNTRIES','NOW. . .'],
   loop:0
 })
 
@@ -97,8 +97,12 @@ const [text]=useTypewriter({
         ))}
        
       </div>
+      <h1 className="btn">GOT TO OUR ALL VISAS PAGE <br /> TO SEE ALL THE COUNTRIES WE ARE WORKING NOW </h1> 
 <div className="text-center ">
+  
 <button className="btn btn-secondary border-2 ml-60 px-8 bg-blue-600">
+
+  
 <NavLink to="/all-visas"> All-Visas</NavLink></button>
 </div>
     </div>

@@ -49,8 +49,8 @@ const MainLayout = () => {
         (
           <ReactTyped
           strings={[
-            "<span class='text-purple-500'>Welcome to VISA WORLD Portal!</span>",
-            "<span class='text-purple-600'>A guided VISA Portal</span>",
+            "<span class='text-purple-500'>Welcome to NYS Global Portal!</span>",
+            "<span class='text-purple-600'>A guided GLOBAL ADMISSION  Portal</span>",
           ]}
           typeSpeed={100} 
           backSpeed={50} 
