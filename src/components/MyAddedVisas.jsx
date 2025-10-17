@@ -8,7 +8,7 @@ import Loading from "./Loading";
 
 
 const MyVisas = () => {
-  const visaTypes = ["Tourist visa", "Student visa", "Official visa", "Business visa", "Transit visa"];
+  const visaTypes = ["Tourist visa", "Student visa", "Work visa", "Business visa", "Transit visa"];
   const { user } = useContext(AuthContext); // Geting logged-in user from context
   const [visas, setVisas] = useState([]);
   const [loading, setLoading] = useState(true);

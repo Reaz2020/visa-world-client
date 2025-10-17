@@ -122,7 +122,7 @@ const AddVisa = () => {
             <option value="">Select Visa Type</option>
             <option value="Tourist visa">Tourist Visa</option>
             <option value="Student visa">Student Visa</option>
-            <option value="Official visa">Official Visa</option>
+            <option value=" Work visa">Work Visa</option>
           </select>
         </div>
 
